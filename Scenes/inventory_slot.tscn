@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://dms0brsbalstp"]
 
-[ext_resource type="Script" path="res://Scripts/inventory_slot.gd" id="1_ugiaw"]
-[ext_resource type="Texture2D" uid="uid://b8aitvnwcwy0u" path="res://Assets/Assets/Icons/icon19.png" id="2_xnitw"]
-[ext_resource type="FontFile" uid="uid://bi04iecmbt37l" path="res://Assets/Assets/Fonts/ARCADECLASSIC.TTF" id="3_oha2t"]
+[ext_resource type="Script" uid="uid://uqjj73yc4awn" path="res://Scripts/inventory_slot.gd" id="1_ugiaw"]
+[ext_resource type="Texture2D" uid="uid://ft0o07fp03ca" path="res://Images/icon19.png" id="2_xnitw"]
+[ext_resource type="FontFile" uid="uid://bc0vshivviyrq" path="res://Resources/ARCADECLASSIC.TTF" id="3_oha2t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwnb8"]
 

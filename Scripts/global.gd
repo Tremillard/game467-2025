@@ -3,6 +3,8 @@ extends Node
 # inventory items
 var inventory = []
 
+
+
 @export var Selected_Object : Node
 
 # custom signal

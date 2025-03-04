@@ -6,12 +6,12 @@ var takeable_script = Takeable
 var talkable_script = Talkable
 
 #Variables for storing the object, and if it's takeable
-var selected = GlobalVars.Selected_Object #shorthand
+var selected = Global.Selected_Object #shorthand
 var selected_takeable
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	selected = GlobalVars.Selected_Object
+	selected = Global.Selected_Object
 
 #Read click inputs over selected objects
 func _input(event):

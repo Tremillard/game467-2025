@@ -9,8 +9,8 @@ class_name Interactable
 
 func _on_mouse_entered():
 	$Sprite2D.modulate = Color(1,1,1)
-	GlobalVars.Selected_Object = self
+	Global.Selected_Object = self
 
 func _on_mouse_exited():
 	$Sprite2D.modulate = Color(0,0,0)
-	GlobalVars.Selected_Object = null
+	Global.Selected_Object = null
