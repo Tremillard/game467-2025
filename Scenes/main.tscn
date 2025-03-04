@@ -1,11 +1,11 @@
 [gd_scene load_steps=16 format=3 uid="uid://b4vadqqj38k7g"]
 
-[ext_resource type="Script" path="res://Scripts/main.gd" id="1_5wbwr"]
+[ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
-[ext_resource type="Script" path="res://Scripts/ClickableOptions.gd" id="2_647cv"]
-[ext_resource type="Script" path="res://Resources/inspectable.gd" id="4_bi7mt"]
-[ext_resource type="Script" path="res://Resources/takeable.gd" id="4_fb3mb"]
-[ext_resource type="Script" path="res://Resources/talkable.gd" id="6_4unax"]
+[ext_resource type="Script" uid="uid://b45xbeppn4h8u" path="res://Scripts/ClickableOptions.gd" id="2_647cv"]
+[ext_resource type="Script" uid="uid://bjnyes25dp115" path="res://Resources/inspectable.gd" id="4_bi7mt"]
+[ext_resource type="Script" uid="uid://b2m6w2fqm504y" path="res://Resources/takeable.gd" id="4_fb3mb"]
+[ext_resource type="Script" uid="uid://dm7a2bwo0hbw0" path="res://Resources/talkable.gd" id="6_4unax"]
 
 [sub_resource type="Resource" id="Resource_btftq"]
 script = ExtResource("4_bi7mt")

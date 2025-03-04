@@ -14,4 +14,3 @@ func _on_mouse_entered():
 func _on_mouse_exited():
 	$Sprite2D.modulate = Color(0,0,0)
 	GlobalVars.Selected_Object = null
-
