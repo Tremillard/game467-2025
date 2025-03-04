@@ -1,8 +1,8 @@
-[gd_scene load_steps=32 format=3 uid="uid://dkt4alowy0xo1"]
+[gd_scene load_steps=32 format=3 uid="uid://b53v0pku12kuy"]
 
 [ext_resource type="Script" uid="uid://br2er08appv0c" path="res://Scripts/character.gd" id="1_2osbk"]
 [ext_resource type="Texture2D" uid="uid://5oavnw3p4ljm" path="res://Images/person.png" id="2_ptlmu"]
-[ext_resource type="PackedScene" uid="uid://bjiw01cjk5dig" path="res://Scenes/inventory_ui.tscn" id="3_lgd72"]
+[ext_resource type="PackedScene" uid="uid://b4e461qi0ldfe" path="res://Scenes/inventory_ui.tscn" id="3_lgd72"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_qpjgg"]
 atlas = ExtResource("2_ptlmu")
@@ -235,7 +235,6 @@ shape = SubResource("CircleShape2D_k7ej5")
 zoom = Vector2(0.64, 0.64)
 
 [node name="InteractUI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="InteractUI"]
 anchors_preset = 3
@@ -269,7 +268,6 @@ text = "Click To Pickup"
 horizontal_alignment = 1
 
 [node name="Inventory_UI" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="ColorRect" type="ColorRect" parent="Inventory_UI"]
 anchors_preset = 15
@@ -301,4 +299,5 @@ metadata/_edit_use_anchors_ = true
 
 [node name="Inventory_UI" parent="Inventory_UI/ColorRect" instance=ExtResource("3_lgd72")]
 process_mode = 3
+layout_mode = 1
 metadata/_edit_use_anchors_ = true

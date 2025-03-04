@@ -1,6 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://ckqeinfmtusap"]
+[gd_scene load_steps=2 format=3 uid="uid://bujkf44mtf3qu"]
 
-[ext_resource type="Script" uid="uid://bod0wkv1qlclc" path="res://Scripts/global_vars.gd" id="1_mwl0i"]
+[sub_resource type="GDScript" id="GDScript_k6b8x"]
+script/source = "extends Node
+
+#We need to know what object is currently being selected
+@export var Selected_Object : Node
+"
 
 [node name="global_vars" type="Node"]
-script = ExtResource("1_mwl0i")
+script = SubResource("GDScript_k6b8x")

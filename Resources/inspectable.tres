@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Inspectable" load_steps=2 format=3 uid="uid://ccpvx8cq1k0te"]
+
+[ext_resource type="Script" uid="uid://bjnyes25dp115" path="res://Scripts/inspectable.gd" id="1_37l52"]
+
+[resource]
+script = ExtResource("1_37l52")
+text = ""
+show = false
+metadata/_custom_type_script = "uid://bjnyes25dp115"

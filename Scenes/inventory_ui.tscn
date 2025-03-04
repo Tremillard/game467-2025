@@ -1,18 +1,44 @@
-[gd_scene load_steps=2 format=3 uid="uid://bjiw01cjk5dig"]
+[gd_scene load_steps=3 format=3 uid="uid://b4e461qi0ldfe"]
 
 [ext_resource type="Script" uid="uid://bwhagsn68c1jp" path="res://Scripts/Inventory_UI.gd" id="1_mi4vq"]
+[ext_resource type="PackedScene" uid="uid://dms0brsbalstp" path="res://Scenes/inventory_slot.tscn" id="2_os1l6"]
 
 [node name="Inventory_UI" type="Control"]
 layout_mode = 3
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("1_mi4vq")
 
 [node name="GridContainer" type="GridContainer" parent="."]
-layout_mode = 0
-offset_left = 155.0
-offset_top = 216.0
-offset_right = 580.0
-offset_bottom = 347.0
+custom_minimum_size = Vector2(10, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -383.0
+offset_top = -75.0
+offset_right = 383.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
 columns = 5
+
+[node name="slot1" parent="GridContainer" instance=ExtResource("2_os1l6")]
+layout_mode = 2
+
+[node name="slot2" parent="GridContainer" instance=ExtResource("2_os1l6")]
+layout_mode = 2
+
+[node name="slot3" parent="GridContainer" instance=ExtResource("2_os1l6")]
+layout_mode = 2
+
+[node name="slot4" parent="GridContainer" instance=ExtResource("2_os1l6")]
+layout_mode = 2
+
+[node name="slot5" parent="GridContainer" instance=ExtResource("2_os1l6")]
+layout_mode = 2

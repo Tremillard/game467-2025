@@ -18,16 +18,6 @@ func _ready():
 	if not Engine.is_editor_hint():
 		icon_sprite.texture = item_texture
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta):
-	if Engine.is_editor_hint():
-		icon_sprite.texture = item_texture
-		
-	if player_in_range and Input.is_action_just_pressed("ui_add"):
-		pickup_item()
-
-
 func pickup_item():
 	var item = {
 		"quantity" : 1,

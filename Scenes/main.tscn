@@ -1,59 +1,29 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=11 format=3 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
 [ext_resource type="Script" uid="uid://b45xbeppn4h8u" path="res://Scripts/ClickableOptions.gd" id="2_647cv"]
-[ext_resource type="Script" uid="uid://bjnyes25dp115" path="res://Resources/inspectable.gd" id="4_bi7mt"]
-[ext_resource type="Script" uid="uid://b2m6w2fqm504y" path="res://Resources/takeable.gd" id="4_fb3mb"]
-[ext_resource type="Script" uid="uid://dm7a2bwo0hbw0" path="res://Resources/talkable.gd" id="6_4unax"]
-[ext_resource type="PackedScene" uid="uid://dvtbai8fcfqek" path="res://Scenes/inventory_item.tscn" id="7_6bp64"]
-[ext_resource type="Texture2D" uid="uid://ft0o07fp03ca" path="res://Images/icon19.png" id="8_ynf5e"]
-[ext_resource type="PackedScene" uid="uid://dkt4alowy0xo1" path="res://Scenes/character.tscn" id="9_hptm8"]
+[ext_resource type="Script" uid="uid://b2m6w2fqm504y" path="res://Scripts/takeable.gd" id="4_fb3mb"]
+[ext_resource type="Resource" uid="uid://ccpvx8cq1k0te" path="res://Resources/inspectable.tres" id="4_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://06xexhbo8g18" path="res://Images/icon.svg" id="5_344ge"]
+[ext_resource type="Resource" uid="uid://eurkjxyjjvli" path="res://Resources/talkable.tres" id="6_hptm8"]
+[ext_resource type="PackedScene" uid="uid://b4e461qi0ldfe" path="res://Scenes/inventory_ui.tscn" id="10_hptm8"]
 
-[sub_resource type="Resource" id="Resource_btftq"]
-script = ExtResource("4_bi7mt")
-text = "I'm a collision box."
-show = true
-
-[sub_resource type="Resource" id="Resource_vygk8"]
+[sub_resource type="Resource" id="Resource_hptm8"]
 script = ExtResource("4_fb3mb")
-text = "You take the collision box."
+text = "Secon"
 show = true
+item_name = "jim"
+texture = ExtResource("5_344ge")
+metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
-[sub_resource type="Resource" id="Resource_jklfx"]
-script = ExtResource("6_4unax")
-text = PackedStringArray("A: You come here often?", "B: Nope!")
-show = true
-
-[sub_resource type="Resource" id="Resource_0glfi"]
-script = ExtResource("4_bi7mt")
-text = "I'm a different collision box."
-show = true
-
-[sub_resource type="Resource" id="Resource_i5mxj"]
+[sub_resource type="Resource" id="Resource_d1ilt"]
 script = ExtResource("4_fb3mb")
-text = "Fine, I'll take this one too."
+text = "First Man"
 show = true
-
-[sub_resource type="Resource" id="Resource_ie03k"]
-script = ExtResource("6_4unax")
-text = PackedStringArray()
-show = false
-
-[sub_resource type="Resource" id="Resource_5updc"]
-script = ExtResource("4_bi7mt")
-text = ""
-show = false
-
-[sub_resource type="Resource" id="Resource_snrj4"]
-script = ExtResource("4_fb3mb")
-text = ""
-show = false
-
-[sub_resource type="Resource" id="Resource_i7wg7"]
-script = ExtResource("6_4unax")
-text = PackedStringArray()
-show = false
+item_name = "Hello"
+texture = ExtResource("5_344ge")
+metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5wbwr")
@@ -84,31 +54,32 @@ text = "Talk"
 layout_mode = 2
 text = "Cancel"
 
-[node name="test_clickable" parent="." instance=ExtResource("1_8oicw")]
-position = Vector2(192, 414)
-inspectable_text = SubResource("Resource_btftq")
-takeable_text = SubResource("Resource_vygk8")
-talkable_text = SubResource("Resource_jklfx")
-
-[node name="Legally Distinct Clickable" parent="." instance=ExtResource("1_8oicw")]
-position = Vector2(409, 346)
-inspectable_text = SubResource("Resource_0glfi")
-takeable_text = SubResource("Resource_i5mxj")
-talkable_text = SubResource("Resource_ie03k")
-
 [node name="empty_clickable" parent="." instance=ExtResource("1_8oicw")]
 position = Vector2(293, 190)
-inspectable_text = SubResource("Resource_5updc")
-takeable_text = SubResource("Resource_snrj4")
-talkable_text = SubResource("Resource_i7wg7")
+inspectable_text = ExtResource("4_ynf5e")
+takeable_info = SubResource("Resource_hptm8")
+talkable_text = ExtResource("6_hptm8")
 
-[node name="Inventory_item" parent="." instance=ExtResource("7_6bp64")]
-position = Vector2(31, 40)
-item_texture = ExtResource("8_ynf5e")
+[node name="empty_clickable2" parent="." instance=ExtResource("1_8oicw")]
+modulate = Color(1, 0.14902, 1, 1)
+position = Vector2(715, 190)
+inspectable_text = ExtResource("4_ynf5e")
+takeable_info = SubResource("Resource_d1ilt")
+talkable_text = ExtResource("6_hptm8")
 
-[node name="CharacterBody2D" parent="." instance=ExtResource("9_hptm8")]
+[node name="Inventory_UI" parent="." instance=ExtResource("10_hptm8")]
+visible = false
+offset_right = 1142.0
+offset_bottom = 642.0
+mouse_filter = 2
+
+[node name="InventoryButton" type="Button" parent="."]
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Inventory"
 
 [connection signal="pressed" from="ClickableOptions/Inspect" to="ClickableOptions" method="_on_inspect_pressed"]
 [connection signal="pressed" from="ClickableOptions/Take" to="ClickableOptions" method="_on_take_pressed"]
 [connection signal="pressed" from="ClickableOptions/Talk" to="ClickableOptions" method="_on_talk_pressed"]
 [connection signal="pressed" from="ClickableOptions/Cancel" to="ClickableOptions" method="_on_cancel_pressed"]
+[connection signal="pressed" from="InventoryButton" to="Inventory_UI" method="_on_inventory_pressed"]

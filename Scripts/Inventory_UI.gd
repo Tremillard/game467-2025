@@ -3,26 +3,21 @@ extends Control
 @onready var grid_container = $GridContainer
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	Global.inventory_updated.connect(_on_inventory_updated)
-	_on_inventory_updated()
+	pass
+
+func _process(delta):
+	if Global.added_item != null:
+		update_inventory()
 
 # Update inventory UI
-func _on_inventory_updated():
-	
-	_clear_grid_container()
-	
-	for item in Global.inventory:
-		var slot = Global.inventory_slot_scene.instantiate()
-		grid_container.add_child(slot)
-		if item != null:
-			slot.set_item(item)
-		else:
-			slot.set_empty()
-	
-func _clear_grid_container():
-	while grid_container.get_child_count() > 0:
-		var child = grid_container.get_child(0)
-		grid_container.remove_child(child)
-		child.queue_free()
-		
-		
+func update_inventory():
+	for slot in $GridContainer.get_children():
+		if slot.item == null:
+			slot.set_item(Global.added_item)
+			Global.added_item = null
+			break
+
+func _on_inventory_pressed():
+	if visible == false: 
+		show() 
+	elif visible == true: hide()

@@ -21,5 +21,5 @@ func _physics_process(delta):
 
 func _input(event):
 	if event.is_action_pressed("ui_inventory"):
-		inventory_ui.visible = !inventory_ui.visible
+		$Inventory_UI.visible = !$Inventory_UI.visible
 		get_tree().paused = !get_tree().paused

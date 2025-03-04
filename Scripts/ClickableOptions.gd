@@ -33,9 +33,9 @@ func check_ability():
 	if selected.inspectable_text.show == true:
 		$Inspect.show()
 		inspectable_script = selected.inspectable_text.text
-	if selected.takeable_text.show == true:
+	if selected.takeable_info.show == true:
 		$Take.show()
-		takeable_script = selected.takeable_text.text
+		takeable_script = selected.takeable_info.text
 		selected_takeable = selected
 	if selected.talkable_text.show == true:
 		$Talk.show()
@@ -48,6 +48,7 @@ func _on_inspect_pressed():
 func _on_take_pressed():
 	print(takeable_script)
 	#TODO Code to add the selected item to your inventory
+	selected_takeable.takeable_info.take_item()
 	selected_takeable.queue_free()
 	self.hide()
 func _on_talk_pressed():
