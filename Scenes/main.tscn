@@ -99,6 +99,8 @@ inspectable_text = SubResource("Resource_5updc")
 takeable_text = SubResource("Resource_snrj4")
 talkable_text = SubResource("Resource_i7wg7")
 
+[node name="Node2D" type="Node2D" parent="."]
+
 [connection signal="pressed" from="ClickableOptions/Inspect" to="ClickableOptions" method="_on_inspect_pressed"]
 [connection signal="pressed" from="ClickableOptions/Take" to="ClickableOptions" method="_on_take_pressed"]
 [connection signal="pressed" from="ClickableOptions/Talk" to="ClickableOptions" method="_on_talk_pressed"]
