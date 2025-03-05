@@ -14,10 +14,11 @@ func set_item(new_item):
 	item = new_item
 	item_name.text = item.item_name
 	item_type.text = item.text
-	icon.texture = item.texture
+	$Sprite2D.texture = item.texture
 
 func _on_check_button_pressed():
 	print(item.text)
+	$UsagePanel.hide()
 
 func _on_use_button_pressed():
 	print("Usage coming soon!")
