@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://5oavnw3p4ljm"
-path="res://.godot/imported/person.png-a9fdc8e9e67128584ba0817022d09880.ctex"
+uid="uid://cu8cii5krs3h"
+path="res://.godot/imported/placeholderinvitem.png-a687fe73a635288fee8a47e3e32e45ac.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Images/person.png"
-dest_files=["res://.godot/imported/person.png-a9fdc8e9e67128584ba0817022d09880.ctex"]
+source_file="res://Assets/Images/placeholderinvitem.png"
+dest_files=["res://.godot/imported/placeholderinvitem.png-a687fe73a635288fee8a47e3e32e45ac.ctex"]
 
 [params]
 

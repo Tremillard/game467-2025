@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://dms0brsbalstp"]
 
 [ext_resource type="Script" uid="uid://uqjj73yc4awn" path="res://Scripts/inventory_slot.gd" id="1_ugiaw"]
-[ext_resource type="FontFile" uid="uid://bc0vshivviyrq" path="res://Fonts/ARCADECLASSIC.TTF" id="3_oha2t"]
+[ext_resource type="FontFile" uid="uid://bc0vshivviyrq" path="res://Assets/Fonts/ARCADECLASSIC.TTF" id="3_oha2t"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_iwnb8"]
 

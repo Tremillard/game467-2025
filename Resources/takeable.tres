@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Takeable" load_steps=3 format=3 uid="uid://b1wtad5nsuhef"]
 
 [ext_resource type="Script" uid="uid://b2m6w2fqm504y" path="res://Scripts/takeable.gd" id="1_6y6lu"]
-[ext_resource type="Texture2D" uid="uid://06xexhbo8g18" path="res://Images/icon.svg" id="2_pjo1v"]
+[ext_resource type="Texture2D" uid="uid://06xexhbo8g18" path="res://Assets/Images/icon.svg" id="2_pjo1v"]
 
 [resource]
 script = ExtResource("1_6y6lu")

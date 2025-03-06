@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=15 format=3 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
@@ -6,8 +6,10 @@
 [ext_resource type="Script" uid="uid://b2m6w2fqm504y" path="res://Scripts/takeable.gd" id="4_fb3mb"]
 [ext_resource type="Resource" uid="uid://ccpvx8cq1k0te" path="res://Resources/inspectable.tres" id="4_ynf5e"]
 [ext_resource type="Resource" uid="uid://eurkjxyjjvli" path="res://Resources/talkable.tres" id="6_hptm8"]
-[ext_resource type="Texture2D" uid="uid://cu8cii5krs3h" path="res://Images/placeholderinvitem.png" id="8_hptm8"]
-[ext_resource type="Texture2D" uid="uid://bim88t48kvxnt" path="res://Audio/manorhub.png" id="9_ynf5e"]
+[ext_resource type="Texture2D" uid="uid://cu8cii5krs3h" path="res://Assets/Images/placeholderinvitem.png" id="8_hptm8"]
+[ext_resource type="Texture2D" uid="uid://bim88t48kvxnt" path="res://Assets/Images/manorhub.png" id="9_ynf5e"]
+[ext_resource type="Script" uid="uid://8arcsgcdja5w" path="res://Scripts/dialogue_player.gd" id="10_6iyac"]
+[ext_resource type="Theme" uid="uid://c7h5nluxkqdya" path="res://UIThemes/DefaultFont.tres" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://b4e461qi0ldfe" path="res://Scenes/inventory_ui.tscn" id="10_hptm8"]
 
 [sub_resource type="Resource" id="Resource_hptm8"]
@@ -25,6 +27,9 @@ show = true
 item_name = "Hello"
 texture = ExtResource("8_hptm8")
 metadata/_custom_type_script = "uid://b2m6w2fqm504y"
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptm8"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 0.615686)
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5wbwr")
@@ -86,8 +91,46 @@ position = Vector2(432, 324)
 scale = Vector2(0.54, 0.54)
 texture = ExtResource("9_ynf5e")
 
+[node name="TextBox" type="CanvasLayer" parent="."]
+
+[node name="DialoguePlayer" type="Control" parent="."]
+texture_filter = 1
+layout_mode = 3
+anchors_preset = 0
+offset_left = 4.0
+offset_top = 518.0
+offset_right = 860.0
+offset_bottom = 644.0
+script = ExtResource("10_6iyac")
+
+[node name="TextLabel" type="RichTextLabel" parent="DialoguePlayer"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+offset_left = 4.0
+offset_top = 3.0
+offset_right = 851.0
+offset_bottom = 124.0
+theme = ExtResource("10_d1ilt")
+
+[node name="Background" type="Panel" parent="DialoguePlayer"]
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
+
+[node name="TextTimer" type="Timer" parent="DialoguePlayer"]
+wait_time = 0.1
+
 [connection signal="pressed" from="ClickableOptions/Inspect" to="ClickableOptions" method="_on_inspect_pressed"]
 [connection signal="pressed" from="ClickableOptions/Take" to="ClickableOptions" method="_on_take_pressed"]
 [connection signal="pressed" from="ClickableOptions/Talk" to="ClickableOptions" method="_on_talk_pressed"]
 [connection signal="pressed" from="ClickableOptions/Cancel" to="ClickableOptions" method="_on_cancel_pressed"]
 [connection signal="pressed" from="InventoryButton" to="Inventory_UI" method="_on_inventory_pressed"]
+[connection signal="focus_entered" from="DialoguePlayer" to="DialoguePlayer" method="_on_focus_entered"]
+[connection signal="mouse_entered" from="DialoguePlayer" to="DialoguePlayer" method="_on_mouse_entered"]
+[connection signal="mouse_exited" from="DialoguePlayer" to="DialoguePlayer" method="_on_mouse_exited"]

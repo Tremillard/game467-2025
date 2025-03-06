@@ -44,6 +44,7 @@ func check_ability():
 #When the UI buttons are pressed, show the info and perform auxillary action (take the object)
 func _on_inspect_pressed():
 	print(inspectable_script)
+	SignalBus.emit_signal("display_dialogue", inspectable_script)
 	self.hide()
 func _on_take_pressed():
 	print(takeable_script)

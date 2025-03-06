@@ -13,12 +13,13 @@ config_version=5
 config/name="Game 467 2025"
 run/main_scene="res://Scenes/main.tscn"
 config/features=PackedStringArray("4.4", "GL Compatibility")
-config/icon="res://Images/icon.svg"
+config/icon="res://Assets/Images/icon.svg"
 
 [autoload]
 
 AudioPlayer="*res://Scenes/audio_player.tscn"
-Global="*res://Scripts/global.gd"
+Global="*res://Scripts/Singletons/global.gd"
+SignalBus="*res://Scripts/Singletons/signal_bus.gd"
 
 [display]
 

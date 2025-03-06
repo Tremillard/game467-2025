@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bim88t48kvxnt"
-path="res://.godot/imported/manorhub.png-5cfd648ffb4232f59911676bbf32cf2c.ctex"
+uid="uid://ft0o07fp03ca"
+path="res://.godot/imported/icon19.png-21a3deb07b19624f660a9f510d352756.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Audio/manorhub.png"
-dest_files=["res://.godot/imported/manorhub.png-5cfd648ffb4232f59911676bbf32cf2c.ctex"]
+source_file="res://Assets/Images/icon19.png"
+dest_files=["res://.godot/imported/icon19.png-21a3deb07b19624f660a9f510d352756.ctex"]
 
 [params]
 

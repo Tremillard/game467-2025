@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://cwy2my1egnnwi"]
 
-[ext_resource type="Script" uid="uid://dq8jc3lrm8d73" path="res://Scripts/audio_player.gd" id="1_s0rld"]
+[ext_resource type="Script" uid="uid://dq8jc3lrm8d73" path="res://Scripts/Singletons/audio_player.gd" id="1_s0rld"]
 [ext_resource type="AudioStream" uid="uid://du0g2vy1ennts" path="res://Assets/Audio/GAME467_Track_3.mp3" id="2_dvgj0"]
 [ext_resource type="AudioStream" uid="uid://sd512gca5bq2" path="res://Assets/Audio/Misc Toggle Foley 003.wav" id="3_jc3xp"]
 [ext_resource type="AudioStream" uid="uid://cqwdar3v61pxg" path="res://Assets/Audio/Scroll Foley 002.wav" id="4_j0217"]
