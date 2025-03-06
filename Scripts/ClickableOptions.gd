@@ -4,7 +4,7 @@ extends VBoxContainer
 var inspectable_script = Inspectable
 var takeable_script = Takeable
 var talkable_script = Talkable
-
+var talkable_speaker
 #Variables for storing the object, and if it's takeable
 var selected = Global.Selected_Object #shorthand
 var selected_takeable
@@ -16,13 +16,15 @@ func _process(delta):
 #Read click inputs over selected objects
 func _input(event):
 	if event is InputEventMouseButton:
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and selected != null:
+		#When you click, if there's a selected object 
+		#and the UI isn't reading, show the options
+		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and selected != null and Global.reading_in_progress == false:
 			_is_clicked()
 
 #When something is clicked show the UI and check what buttons should show
 func _is_clicked():
 	self.show()
-	self.position = get_global_mouse_position() + Vector2(60,0)
+	self.position = get_global_mouse_position() + Vector2(60,-30)
 	check_ability()
 
 #check what the object is and stores data of it
@@ -40,6 +42,7 @@ func check_ability():
 	if selected.talkable_text.show == true:
 		$Talk.show()
 		talkable_script = selected.talkable_text.text
+		talkable_speaker = selected.talkable_text.speaker
 
 #When the UI buttons are pressed, show the info and perform auxillary action (take the object)
 func _on_inspect_pressed():
@@ -48,12 +51,12 @@ func _on_inspect_pressed():
 	self.hide()
 func _on_take_pressed():
 	print(takeable_script)
-	#TODO Code to add the selected item to your inventory
 	selected_takeable.takeable_info.take_item()
+	SignalBus.emit_signal("display_dialogue", takeable_script)
 	selected_takeable.queue_free()
 	self.hide()
 func _on_talk_pressed():
-	print(talkable_script)
+	SignalBus.emit_signal("display_conversation", talkable_script, talkable_speaker)
 	self.hide()
 func _on_cancel_pressed():
 	self.hide()

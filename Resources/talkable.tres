@@ -4,6 +4,7 @@
 
 [resource]
 script = ExtResource("1_vvku1")
-text = PackedStringArray()
-show = false
+text = PackedStringArray("I am conversant.", "See? I have two things to say.", "Cool!")
+show = true
+speaker = PackedStringArray("Spectre", "Spectre", "You")
 metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"

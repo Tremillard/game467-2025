@@ -1,30 +1,50 @@
-[gd_scene load_steps=15 format=3 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=19 format=3 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
 [ext_resource type="Script" uid="uid://b45xbeppn4h8u" path="res://Scripts/ClickableOptions.gd" id="2_647cv"]
+[ext_resource type="Script" uid="uid://bjnyes25dp115" path="res://Scripts/inspectable.gd" id="4_6iyac"]
 [ext_resource type="Script" uid="uid://b2m6w2fqm504y" path="res://Scripts/takeable.gd" id="4_fb3mb"]
-[ext_resource type="Resource" uid="uid://ccpvx8cq1k0te" path="res://Resources/inspectable.tres" id="4_ynf5e"]
 [ext_resource type="Resource" uid="uid://eurkjxyjjvli" path="res://Resources/talkable.tres" id="6_hptm8"]
+[ext_resource type="Script" uid="uid://dm7a2bwo0hbw0" path="res://Scripts/talkable.gd" id="7_fdnlq"]
 [ext_resource type="Texture2D" uid="uid://cu8cii5krs3h" path="res://Assets/Images/placeholderinvitem.png" id="8_hptm8"]
 [ext_resource type="Texture2D" uid="uid://bim88t48kvxnt" path="res://Assets/Images/manorhub.png" id="9_ynf5e"]
 [ext_resource type="Script" uid="uid://8arcsgcdja5w" path="res://Scripts/dialogue_player.gd" id="10_6iyac"]
 [ext_resource type="Theme" uid="uid://c7h5nluxkqdya" path="res://UIThemes/DefaultFont.tres" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://b4e461qi0ldfe" path="res://Scenes/inventory_ui.tscn" id="10_hptm8"]
 
-[sub_resource type="Resource" id="Resource_hptm8"]
-script = ExtResource("4_fb3mb")
-text = "Secon"
+[sub_resource type="Resource" id="Resource_fdnlq"]
+script = ExtResource("4_6iyac")
+text = "It's a decorated vase. The flower within is wilting, but the vase itself has a nice pattern."
 show = true
-item_name = "jim"
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_6iyac"]
+script = ExtResource("4_fb3mb")
+text = "You take the decorated vase."
+show = true
+item_name = "Vase"
 texture = ExtResource("8_hptm8")
 metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
+[sub_resource type="Resource" id="Resource_jkdf5"]
+script = ExtResource("7_fdnlq")
+text = PackedStringArray("I am conversant.", "See? I have two things to say.")
+show = false
+speaker = PackedStringArray()
+metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"
+
+[sub_resource type="Resource" id="Resource_wsu2k"]
+script = ExtResource("4_6iyac")
+text = "They seem to want to talk to me, despite not existing."
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
 [sub_resource type="Resource" id="Resource_d1ilt"]
 script = ExtResource("4_fb3mb")
-text = "First Man"
-show = true
-item_name = "Hello"
+text = "NULL"
+show = false
+item_name = "NULL"
 texture = ExtResource("8_hptm8")
 metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
@@ -37,6 +57,7 @@ script = ExtResource("1_5wbwr")
 [node name="ClickableOptions" type="VBoxContainer" parent="."]
 visible = false
 top_level = true
+z_index = 1
 offset_right = 65.0
 offset_bottom = 101.0
 script = ExtResource("2_647cv")
@@ -61,15 +82,16 @@ layout_mode = 2
 text = "Cancel"
 
 [node name="empty_clickable" parent="." instance=ExtResource("1_8oicw")]
-position = Vector2(293, 190)
-inspectable_text = ExtResource("4_ynf5e")
-takeable_info = SubResource("Resource_hptm8")
-talkable_text = ExtResource("6_hptm8")
+position = Vector2(631, 452)
+scale = Vector2(0.447671, 0.711195)
+inspectable_text = SubResource("Resource_fdnlq")
+takeable_info = SubResource("Resource_6iyac")
+talkable_text = SubResource("Resource_jkdf5")
 
 [node name="empty_clickable2" parent="." instance=ExtResource("1_8oicw")]
 modulate = Color(1, 0.14902, 1, 1)
 position = Vector2(715, 192)
-inspectable_text = ExtResource("4_ynf5e")
+inspectable_text = SubResource("Resource_wsu2k")
 takeable_info = SubResource("Resource_d1ilt")
 talkable_text = ExtResource("6_hptm8")
 
@@ -81,6 +103,7 @@ offset_bottom = 663.0
 mouse_filter = 2
 
 [node name="InventoryButton" type="Button" parent="."]
+visible = false
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Inventory"
@@ -111,14 +134,54 @@ offset_left = 4.0
 offset_top = 3.0
 offset_right = 851.0
 offset_bottom = 124.0
+mouse_filter = 2
+theme = ExtResource("10_d1ilt")
+
+[node name="Speaker" type="RichTextLabel" parent="DialoguePlayer"]
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+offset_left = 4.0
+offset_top = -41.0
+offset_right = 395.0
+offset_bottom = 4.0
+mouse_filter = 2
 theme = ExtResource("10_d1ilt")
 
 [node name="Background" type="Panel" parent="DialoguePlayer"]
+visible = false
 texture_filter = 1
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
+
+[node name="SpeakerLabel" type="RichTextLabel" parent="DialoguePlayer"]
+visible = false
+z_index = 1
+texture_filter = 1
+layout_mode = 1
+offset_left = 4.0
+offset_top = -44.0
+offset_right = 232.0
+offset_bottom = -3.0
+mouse_filter = 2
+theme = ExtResource("10_d1ilt")
+
+[node name="SpeakerBackground" type="Panel" parent="DialoguePlayer"]
+visible = false
+texture_filter = 1
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -47.0
+offset_right = -598.0
+offset_bottom = -126.0
 grow_horizontal = 2
 grow_vertical = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")

@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://bxh5jjjr7iub8"
+path="res://.godot/imported/Scroll Foley Single 002.wav-a23f11eeb54d8f09a0e178c63bf763c8.sample"
+
+[deps]
+
+source_file="res://Assets/Audio/Scroll Foley Single 002.wav"
+dest_files=["res://.godot/imported/Scroll Foley Single 002.wav-a23f11eeb54d8f09a0e178c63bf763c8.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

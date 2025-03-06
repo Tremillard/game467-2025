@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://dq8jc3lrm8d73" path="res://Scripts/Singletons/audio_player.gd" id="1_s0rld"]
 [ext_resource type="AudioStream" uid="uid://du0g2vy1ennts" path="res://Assets/Audio/GAME467_Track_3.mp3" id="2_dvgj0"]
 [ext_resource type="AudioStream" uid="uid://sd512gca5bq2" path="res://Assets/Audio/Misc Toggle Foley 003.wav" id="3_jc3xp"]
-[ext_resource type="AudioStream" uid="uid://cqwdar3v61pxg" path="res://Assets/Audio/Scroll Foley 002.wav" id="4_j0217"]
+[ext_resource type="AudioStream" uid="uid://bxh5jjjr7iub8" path="res://Assets/Audio/Scroll Foley Single 002.wav" id="4_d4rhe"]
 [ext_resource type="AudioStream" uid="uid://dk72unnfr578e" path="res://Assets/Audio/Door_Opening.wav" id="5_im4p7"]
 
 [node name="AudioPlayer" type="Node"]
@@ -16,7 +16,8 @@ stream = ExtResource("2_dvgj0")
 stream = ExtResource("3_jc3xp")
 
 [node name="TalkSound" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("4_j0217")
+stream = ExtResource("4_d4rhe")
+volume_db = 8.0
 
 [node name="DoorSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_im4p7")
