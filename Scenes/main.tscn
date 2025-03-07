@@ -136,7 +136,6 @@ offset_right = 851.0
 offset_bottom = 124.0
 mouse_filter = 2
 theme = ExtResource("10_d1ilt")
-text = "The quick brown fox leaped over the lazy log"
 visible_characters_behavior = 1
 
 [node name="Speaker" type="RichTextLabel" parent="DialoguePlayer"]
