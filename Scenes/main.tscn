@@ -81,20 +81,6 @@ text = "Talk"
 layout_mode = 2
 text = "Cancel"
 
-[node name="empty_clickable" parent="." instance=ExtResource("1_8oicw")]
-position = Vector2(631, 452)
-scale = Vector2(0.447671, 0.711195)
-inspectable_text = SubResource("Resource_fdnlq")
-takeable_info = SubResource("Resource_6iyac")
-talkable_text = SubResource("Resource_jkdf5")
-
-[node name="empty_clickable2" parent="." instance=ExtResource("1_8oicw")]
-modulate = Color(1, 0.14902, 1, 1)
-position = Vector2(715, 192)
-inspectable_text = SubResource("Resource_wsu2k")
-takeable_info = SubResource("Resource_d1ilt")
-talkable_text = ExtResource("6_hptm8")
-
 [node name="Inventory_UI" parent="." instance=ExtResource("10_hptm8")]
 offset_left = 730.0
 offset_top = 21.0
@@ -102,17 +88,33 @@ offset_right = 1872.0
 offset_bottom = 663.0
 mouse_filter = 2
 
+[node name="Manor" type="Node2D" parent="."]
+
+[node name="empty_clickable" parent="Manor" instance=ExtResource("1_8oicw")]
+position = Vector2(631, 452)
+scale = Vector2(0.447671, 0.711195)
+inspectable_text = SubResource("Resource_fdnlq")
+takeable_info = SubResource("Resource_6iyac")
+talkable_text = SubResource("Resource_jkdf5")
+
+[node name="empty_clickable2" parent="Manor" instance=ExtResource("1_8oicw")]
+modulate = Color(1, 0.14902, 1, 1)
+position = Vector2(715, 192)
+inspectable_text = SubResource("Resource_wsu2k")
+takeable_info = SubResource("Resource_d1ilt")
+talkable_text = ExtResource("6_hptm8")
+
+[node name="Manorhub" type="Sprite2D" parent="Manor"]
+z_index = -1
+position = Vector2(432, 324)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("9_ynf5e")
+
 [node name="InventoryButton" type="Button" parent="."]
 visible = false
 offset_right = 8.0
 offset_bottom = 8.0
 text = "Inventory"
-
-[node name="Manorhub" type="Sprite2D" parent="."]
-z_index = -1
-position = Vector2(432, 324)
-scale = Vector2(0.54, 0.54)
-texture = ExtResource("9_ynf5e")
 
 [node name="TextBox" type="CanvasLayer" parent="."]
 
