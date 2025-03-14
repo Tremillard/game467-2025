@@ -16,8 +16,16 @@ func update_inventory():
 			slot.set_item(Global.added_item)
 			Global.added_item = null
 			break
+	check_inventory()
+	
 
 func _on_inventory_pressed():
 	if visible == false: 
 		show() 
 	elif visible == true: hide()
+
+func check_inventory():
+	Global.inventory_keys = []
+	for slot in $GridContainer.get_children():
+		Global.inventory_keys.append(slot.key)
+	print(Global.inventory_keys)

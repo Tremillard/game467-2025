@@ -6,7 +6,8 @@
 [resource]
 script = ExtResource("1_6y6lu")
 text = "I haven't been customized!"
-show = true
+show = false
 item_name = "N/A"
 texture = ExtResource("2_pjo1v")
+key = "flower"
 metadata/_custom_type_script = "uid://b2m6w2fqm504y"

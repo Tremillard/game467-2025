@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Usable" load_steps=2 format=3 uid="uid://uo8npntf6vtc"]
+
+[ext_resource type="Script" uid="uid://w0q7anfur22h" path="res://Scripts/usable.gd" id="1_b0xss"]
+
+[resource]
+script = ExtResource("1_b0xss")
+text = "The key fits, and the door unlocks."
+show = false
+key = "left_door_key"
+metadata/_custom_type_script = "uid://w0q7anfur22h"

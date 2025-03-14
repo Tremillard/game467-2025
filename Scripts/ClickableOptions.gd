@@ -4,6 +4,7 @@ extends VBoxContainer
 var inspectable_script = Inspectable
 var takeable_script = Takeable
 var talkable_script = Talkable
+var usable_script = Usable
 var talkable_speaker
 #Variables for storing the object, and if it's takeable
 var selected = Global.Selected_Object #shorthand
@@ -24,7 +25,7 @@ func _input(event):
 #When something is clicked show the UI and check what buttons should show
 func _is_clicked():
 	self.show()
-	self.position = get_global_mouse_position() + Vector2(60,-30)
+	self.position = get_global_mouse_position() + Vector2(60,-96)
 	check_ability()
 
 #check what the object is and stores data of it
@@ -32,17 +33,23 @@ func check_ability():
 	$Inspect.hide()
 	$Take.hide()
 	$Talk.hide()
-	if selected.inspectable_text.show == true:
+	$Use.hide()
+	if selected.inspectable_res.show == true:
 		$Inspect.show()
-		inspectable_script = selected.inspectable_text.text
-	if selected.takeable_info.show == true:
+		inspectable_script = selected.inspectable_res.text
+	if selected.takeable_res.show == true:
 		$Take.show()
-		takeable_script = selected.takeable_info.text
+		takeable_script = selected.takeable_res.text
 		selected_takeable = selected
-	if selected.talkable_text.show == true:
+	if selected.talkable_res.show == true:
 		$Talk.show()
-		talkable_script = selected.talkable_text.text
-		talkable_speaker = selected.talkable_text.speaker
+		talkable_script = selected.talkable_res.text
+		talkable_speaker = selected.talkable_res.speaker
+	if selected.usable_res.show == true:
+		$Use.show()
+		usable_script = selected.usable_res.text
+		
+		
 
 #When the UI buttons are pressed, show the info and perform auxillary action (take the object)
 func _on_inspect_pressed():
@@ -51,7 +58,7 @@ func _on_inspect_pressed():
 	self.hide()
 func _on_take_pressed():
 	print(takeable_script)
-	selected_takeable.takeable_info.take_item()
+	selected_takeable.takeable_res.take_item()
 	SignalBus.emit_signal("display_dialogue", takeable_script)
 	selected_takeable.queue_free()
 	self.hide()
@@ -60,3 +67,9 @@ func _on_talk_pressed():
 	self.hide()
 func _on_cancel_pressed():
 	self.hide()
+
+func _on_use_pressed():
+	SignalBus.emit_signal("display_dialogue", usable_script)
+	#code to use key and do something
+	self.hide()
+	

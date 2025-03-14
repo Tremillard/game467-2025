@@ -6,5 +6,7 @@ var inventory = []
 @export var Selected_Object : Node
 #added_item important to bus information to inventory
 @export var added_item : Takeable
-#Readind in Progess important to check if 
+#Reading in Progess important to check if more dialogue can appear
 @export var reading_in_progress : bool
+#Array of the keys in your inventory, important to see if you can "use" stuff
+@export var inventory_keys : Array
