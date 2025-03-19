@@ -29,3 +29,9 @@ func check_inventory():
 	for slot in $GridContainer.get_children():
 		Global.inventory_keys.append(slot.key)
 	print(Global.inventory_keys)
+
+func remove_item(itemkey):
+	for slot in $GridContainer.get_children():
+		if slot.item.key == itemkey:
+			slot.remove_item()
+			break

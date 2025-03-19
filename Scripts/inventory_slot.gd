@@ -18,12 +18,17 @@ func set_item(new_item):
 	item_type.text = item.text
 	$Sprite2D.texture = item.texture
 
+func remove_item():
+	key = null
+	item = null
+	item_name = null
+	item_type = null
+	$Sprite2D.texture = null
+
 func _on_check_button_pressed():
-	print(item.text)
 	$UsagePanel.hide()
 
 func _on_use_button_pressed():
-	print("Usage coming soon!")
 	$UsagePanel.hide()
 
 func _on_item_button_pressed():

@@ -21,11 +21,11 @@ metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_jkdf5"]
 script = ExtResource("4_fb3mb")
-text = "You pick a teeny-tiny flower."
+text = "It's a door key."
 show = true
 item_name = "N/A"
 texture = ExtResource("8_hptm8")
-key = "flower"
+key = "left_door_key"
 metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
 [sub_resource type="Resource" id="Resource_wsu2k"]

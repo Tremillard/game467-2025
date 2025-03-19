@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_b0xss")
 text = "The key fits, and the door unlocks."
-show = false
+show = true
 key = "left_door_key"
 metadata/_custom_type_script = "uid://w0q7anfur22h"

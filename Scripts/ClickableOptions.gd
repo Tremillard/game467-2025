@@ -47,17 +47,15 @@ func check_ability():
 		talkable_speaker = selected.talkable_res.speaker
 	if selected.usable_res.show == true:
 		$Use.show()
-		usable_script = selected.usable_res.text
+		usable_script = selected.usable_res
 		
 		
 
 #When the UI buttons are pressed, show the info and perform auxillary action (take the object)
 func _on_inspect_pressed():
-	print(inspectable_script)
 	SignalBus.emit_signal("display_dialogue", inspectable_script)
 	self.hide()
 func _on_take_pressed():
-	print(takeable_script)
 	selected_takeable.takeable_res.take_item()
 	SignalBus.emit_signal("display_dialogue", takeable_script)
 	selected_takeable.queue_free()
@@ -69,7 +67,7 @@ func _on_cancel_pressed():
 	self.hide()
 
 func _on_use_pressed():
-	SignalBus.emit_signal("display_dialogue", usable_script)
-	#code to use key and do something
+	SignalBus.emit_signal("usability_trigger", usable_script)
+	#Talk to main about what the use function should be
 	self.hide()
 	
