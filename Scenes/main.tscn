@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=20 format=3 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
@@ -12,6 +12,7 @@
 [ext_resource type="Script" uid="uid://8arcsgcdja5w" path="res://Scripts/dialogue_player.gd" id="10_6iyac"]
 [ext_resource type="Theme" uid="uid://c7h5nluxkqdya" path="res://UIThemes/DefaultFont.tres" id="10_d1ilt"]
 [ext_resource type="PackedScene" uid="uid://b4e461qi0ldfe" path="res://Scenes/inventory_ui.tscn" id="10_hptm8"]
+[ext_resource type="Texture2D" uid="uid://k0tsknmxk3yq" path="res://Assets/Images/manor_prehistoric.png" id="11_fdnlq"]
 
 [sub_resource type="Resource" id="Resource_fdnlq"]
 script = ExtResource("4_6iyac")
@@ -86,6 +87,10 @@ text = "Use
 [node name="Cancel" type="Button" parent="ClickableOptions"]
 layout_mode = 2
 text = "Cancel"
+
+[node name="Enter" type="Button" parent="ClickableOptions"]
+layout_mode = 2
+text = "Enter"
 
 [node name="Inventory_UI" parent="." instance=ExtResource("10_hptm8")]
 offset_left = 730.0
@@ -203,11 +208,18 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
 [node name="TextTimer" type="Timer" parent="DialoguePlayer"]
 wait_time = 0.1
 
+[node name="Manor_Prehist" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Manor_Prehist"]
+texture = ExtResource("11_fdnlq")
+
 [connection signal="pressed" from="ClickableOptions/Inspect" to="ClickableOptions" method="_on_inspect_pressed"]
 [connection signal="pressed" from="ClickableOptions/Take" to="ClickableOptions" method="_on_take_pressed"]
 [connection signal="pressed" from="ClickableOptions/Talk" to="ClickableOptions" method="_on_talk_pressed"]
 [connection signal="pressed" from="ClickableOptions/Use" to="ClickableOptions" method="_on_use_pressed"]
 [connection signal="pressed" from="ClickableOptions/Cancel" to="ClickableOptions" method="_on_cancel_pressed"]
+[connection signal="pressed" from="ClickableOptions/Enter" to="ClickableOptions" method="_on_enter_pressed"]
 [connection signal="pressed" from="InventoryButton" to="Inventory_UI" method="_on_inventory_pressed"]
 [connection signal="focus_entered" from="DialoguePlayer" to="DialoguePlayer" method="_on_focus_entered"]
 [connection signal="mouse_entered" from="DialoguePlayer" to="DialoguePlayer" method="_on_mouse_entered"]

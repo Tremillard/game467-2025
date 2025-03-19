@@ -5,6 +5,7 @@ var inspectable_script = Inspectable
 var takeable_script = Takeable
 var talkable_script = Talkable
 var usable_script = Usable
+var enterable_room = Enterable
 var talkable_speaker
 #Variables for storing the object, and if it's takeable
 var selected = Global.Selected_Object #shorthand
@@ -34,6 +35,7 @@ func check_ability():
 	$Take.hide()
 	$Talk.hide()
 	$Use.hide()
+	$Enter.hide()
 	if selected.inspectable_res.show == true:
 		$Inspect.show()
 		inspectable_script = selected.inspectable_res.text
@@ -48,8 +50,9 @@ func check_ability():
 	if selected.usable_res.show == true:
 		$Use.show()
 		usable_script = selected.usable_res
-		
-		
+	if selected.enterable_res.show == true:
+		$Enter.hide()
+		enterable_script 
 
 #When the UI buttons are pressed, show the info and perform auxillary action (take the object)
 func _on_inspect_pressed():
@@ -70,4 +73,11 @@ func _on_use_pressed():
 	SignalBus.emit_signal("usability_trigger", usable_script)
 	#Talk to main about what the use function should be
 	self.hide()
-	
+
+func _on_enter_pressed():
+	SignalBus.emit_signal("enter", enter_room)
+	if Input.is_action_just_pressed("ui_accept"):
+		_on_toggle_child_visibility()
+func _on_toggle_child_visibility():
+	var room_key = get_node("Main/Manor_Prehist") 
+	room_key.visible = not room_key.visible

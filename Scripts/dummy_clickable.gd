@@ -6,6 +6,7 @@ class_name Interactable
 @export var takeable_res = Resource
 @export var talkable_res = Resource
 @export var usable_res = Resource
+@export var enterable_res = Resource
 
 func _on_mouse_entered():
 	Global.Selected_Object = self
