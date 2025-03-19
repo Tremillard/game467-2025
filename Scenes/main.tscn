@@ -211,7 +211,10 @@ wait_time = 0.1
 [node name="Manor_Prehist" type="Node2D" parent="."]
 visible = false
 
-[node name="Sprite2D" type="Sprite2D" parent="Manor_Prehist"]
+[node name="Manor_Prehisthub" type="Sprite2D" parent="Manor_Prehist"]
+z_index = -1
+position = Vector2(432, 324)
+scale = Vector2(0.834783, 0.835052)
 texture = ExtResource("11_fdnlq")
 
 [connection signal="pressed" from="ClickableOptions/Inspect" to="ClickableOptions" method="_on_inspect_pressed"]

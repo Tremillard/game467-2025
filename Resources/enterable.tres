@@ -4,4 +4,5 @@
 
 [resource]
 script = ExtResource("1_uswho")
+show = true
 metadata/_custom_type_script = "uid://cluy2etoai2p2"

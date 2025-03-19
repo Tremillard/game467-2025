@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://ddnyj3yf6gsgm"]
+[gd_scene load_steps=8 format=3 uid="uid://ddnyj3yf6gsgm"]
 
 [ext_resource type="Script" uid="uid://ls3jg2yipds7" path="res://Scripts/dummy_clickable.gd" id="1_00cur"]
 [ext_resource type="Resource" uid="uid://ccpvx8cq1k0te" path="res://Resources/inspectable.tres" id="2_2vdkm"]
 [ext_resource type="Resource" uid="uid://b1wtad5nsuhef" path="res://Resources/takeable.tres" id="3_68dew"]
 [ext_resource type="Resource" uid="uid://eurkjxyjjvli" path="res://Resources/talkable.tres" id="4_q0a5b"]
 [ext_resource type="Resource" uid="uid://uo8npntf6vtc" path="res://Resources/usable.tres" id="5_616nr"]
+[ext_resource type="Resource" uid="uid://w5ipnltc2mep" path="res://Resources/enterable.tres" id="6_68dew"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7qpg1"]
 size = Vector2(80, 80)
@@ -16,6 +17,7 @@ inspectable_res = ExtResource("2_2vdkm")
 takeable_res = ExtResource("3_68dew")
 talkable_res = ExtResource("4_q0a5b")
 usable_res = ExtResource("5_616nr")
+enterable_res = ExtResource("6_68dew")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_7qpg1")

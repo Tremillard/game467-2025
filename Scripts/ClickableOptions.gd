@@ -51,8 +51,8 @@ func check_ability():
 		$Use.show()
 		usable_script = selected.usable_res
 	if selected.enterable_res.show == true:
-		$Enter.hide()
-		enterable_script 
+		$Enter.show()
+		enterable_room = selected.enterable_res
 
 #When the UI buttons are pressed, show the info and perform auxillary action (take the object)
 func _on_inspect_pressed():
@@ -75,9 +75,11 @@ func _on_use_pressed():
 	self.hide()
 
 func _on_enter_pressed():
-	SignalBus.emit_signal("enter", enter_room)
-	if Input.is_action_just_pressed("ui_accept"):
-		_on_toggle_child_visibility()
+	SignalBus.emit_signal("enter", enterable_room)
+	_on_toggle_child_visibility()
+	self.hide()
+	
 func _on_toggle_child_visibility():
-	var room_key = get_node("Main/Manor_Prehist") 
-	room_key.visible = not room_key.visible
+	var main = get_parent()  # This gets the parent of the current node (ClickableOptions)
+	main.get_node("Manor_Prehist").visible = true
+	main.get_node("Manor").visible = false

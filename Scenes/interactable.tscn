@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6f4urgl88fqy"]
+
+[ext_resource type="Script" uid="uid://ls3jg2yipds7" path="res://Scripts/dummy_clickable.gd" id="1_8s6bd"]
+
+[node name="Interactable" type="CharacterBody2D"]
+script = ExtResource("1_8s6bd")
+metadata/_custom_type_script = "uid://ls3jg2yipds7"
