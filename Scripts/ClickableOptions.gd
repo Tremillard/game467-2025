@@ -20,7 +20,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		#When you click, if there's a selected object 
 		#and the UI isn't reading, show the options
-		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed and selected != null and Global.reading_in_progress == false:
+		if event.button_index == MOUSE_BUTTON_LEFT and event.is_released() and selected != null and Global.reading_in_progress == false:
 			_is_clicked()
 
 #When something is clicked show the UI and check what buttons should show
