@@ -20,6 +20,7 @@ config/icon="res://Assets/Images/icon.svg"
 AudioPlayer="*res://Scenes/audio_player.tscn"
 Global="*res://Scripts/Singletons/global.gd"
 SignalBus="*res://Scripts/Singletons/signal_bus.gd"
+Cutscenes="*res://Scripts/Singletons/Cutscenes.gd"
 
 [display]
 

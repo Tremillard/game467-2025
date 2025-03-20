@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=43 format=3 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
@@ -6,7 +6,7 @@
 [ext_resource type="Script" uid="uid://bjnyes25dp115" path="res://Scripts/inspectable.gd" id="4_6iyac"]
 [ext_resource type="Script" uid="uid://b2m6w2fqm504y" path="res://Scripts/takeable.gd" id="4_fb3mb"]
 [ext_resource type="Script" uid="uid://dm7a2bwo0hbw0" path="res://Scripts/talkable.gd" id="7_fdnlq"]
-[ext_resource type="Texture2D" uid="uid://cu8cii5krs3h" path="res://Assets/Images/placeholderinvitem.png" id="8_hptm8"]
+[ext_resource type="Texture2D" uid="uid://wsa3bsfftrxa" path="res://Assets/Images/note.png" id="8_k12tt"]
 [ext_resource type="Script" uid="uid://w0q7anfur22h" path="res://Scripts/usable.gd" id="9_6iyac"]
 [ext_resource type="Texture2D" uid="uid://bim88t48kvxnt" path="res://Assets/Images/manorhub.png" id="9_ynf5e"]
 [ext_resource type="Script" uid="uid://8arcsgcdja5w" path="res://Scripts/dialogue_player.gd" id="10_6iyac"]
@@ -14,12 +14,23 @@
 [ext_resource type="PackedScene" uid="uid://b4e461qi0ldfe" path="res://Scenes/inventory_ui.tscn" id="10_hptm8"]
 [ext_resource type="Texture2D" uid="uid://k0tsknmxk3yq" path="res://Assets/Images/manor_prehistoric.png" id="11_fdnlq"]
 [ext_resource type="Script" uid="uid://cluy2etoai2p2" path="res://Scripts/enterable.gd" id="11_jkdf5"]
+[ext_resource type="Texture2D" uid="uid://bg4k64qid20s4" path="res://Assets/Images/walkie.png" id="15_h1bgf"]
+[ext_resource type="Texture2D" uid="uid://dyrn4kry4y3ou" path="res://Assets/Images/bucket.png" id="16_b3802"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptm8"]
+bg_color = Color(0.105882, 0.105882, 0.105882, 0.615686)
 
 [sub_resource type="Resource" id="Resource_6iyac"]
 script = ExtResource("4_6iyac")
 text = "It's a door. I can hear stones banging on the other side."
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_e08e2"]
+script = ExtResource("11_jkdf5")
+show = true
+destination = "prehistoric"
+metadata/_custom_type_script = "uid://cluy2etoai2p2"
 
 [sub_resource type="Resource" id="Resource_wsu2k"]
 script = ExtResource("4_6iyac")
@@ -29,11 +40,11 @@ metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_k12tt"]
 script = ExtResource("4_fb3mb")
-text = "I haven't been customized!"
-show = true
-item_name = ""
-texture = ExtResource("8_hptm8")
-key = "flower"
+show = false
+pick_up_text = ""
+inspect_text = ""
+texture = ExtResource("8_k12tt")
+key = "Note"
 metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
 [sub_resource type="Resource" id="Resource_h1bgf"]
@@ -53,6 +64,7 @@ metadata/_custom_type_script = "uid://w0q7anfur22h"
 [sub_resource type="Resource" id="Resource_fevyy"]
 script = ExtResource("11_jkdf5")
 show = false
+destination = ""
 metadata/_custom_type_script = "uid://cluy2etoai2p2"
 
 [sub_resource type="Resource" id="Resource_hibaj"]
@@ -79,14 +91,93 @@ text = "A bottle with looks and smells to be some alcohol, maybe someone got a b
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptm8"]
-bg_color = Color(0.105882, 0.105882, 0.105882, 0.615686)
-
 [sub_resource type="Resource" id="Resource_gt3je"]
 script = ExtResource("4_6iyac")
 text = "A piece of paper? I wonder what it reads."
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_3pmx8"]
+script = ExtResource("4_fb3mb")
+show = true
+pick_up_text = "You snatch the paper up."
+inspect_text = "It reads: \"I don't know what this is supposed to say yet, but it's probably important! -CSD\""
+texture = ExtResource("8_k12tt")
+key = "note"
+metadata/_custom_type_script = "uid://b2m6w2fqm504y"
+
+[sub_resource type="Resource" id="Resource_u50mg"]
+script = ExtResource("4_6iyac")
+text = "This place seems based on Prehistoric times, but a walkie talkie seemed to make it here, better hold on to it for safe keeping."
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_cbgmd"]
+script = ExtResource("4_fb3mb")
+show = true
+pick_up_text = "You snatch the Walkie-Talkie."
+inspect_text = "I'm not getting a signal from here..."
+texture = ExtResource("15_h1bgf")
+key = "walkie"
+metadata/_custom_type_script = "uid://b2m6w2fqm504y"
+
+[sub_resource type="Resource" id="Resource_1w6v2"]
+script = ExtResource("4_6iyac")
+text = "It's a bucket. Suprisingly, made of metal."
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_ueoa1"]
+script = ExtResource("4_fb3mb")
+show = false
+pick_up_text = ""
+inspect_text = ""
+texture = ExtResource("8_k12tt")
+key = "Note"
+metadata/_custom_type_script = "uid://b2m6w2fqm504y"
+
+[sub_resource type="Resource" id="Resource_6vcvc"]
+script = ExtResource("4_6iyac")
+text = "The dog sleeps so soundly, but if I want that key I'm gonna have to find a way to get it from him."
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_7k868"]
+script = ExtResource("4_6iyac")
+text = "This bed looks a bit uncomfortable with the mattress being a rock, better not mess with it though if I want to get on Grug's good side."
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_hpc6h"]
+script = ExtResource("4_6iyac")
+text = "I can see my reflection through the mirror, though it seems cracked. The door is visible, too."
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_r33sp"]
+script = ExtResource("11_jkdf5")
+show = true
+destination = "manor"
+metadata/_custom_type_script = "uid://cluy2etoai2p2"
+
+[sub_resource type="Resource" id="Resource_neg2b"]
+script = ExtResource("4_6iyac")
+text = "A caveman. He seems to go by \"Grug\"."
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_kltya"]
+script = ExtResource("7_fdnlq")
+text = PackedStringArray("Grrrrrrrrrr...", "(Hey, that dog has a key in his mouth.)", "Haaah Buaahaa Graahhhaaa!", "Whoa!", "(There seems to be someone alive in the mansion.)", "Me Room, you no welcome!", "Uhhh?", "Leave me room! Leave me dog too!", "Listen, I may need that key from your dog. Any chance I can have it?", "No Key! You no welcome here!", "Me dog don\'t like you!", "(If I want to get out of here I may need that key somehow.)")
+show = true
+speaker = PackedStringArray("Dog", "Logan", "Grug", "Logan", "Logan", "Grug", "Logan", "Grug", "Logan", "Grug", "Grug", "Logan")
+metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"
+
+[sub_resource type="Gradient" id="Gradient_k12tt"]
+colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_h1bgf"]
+gradient = SubResource("Gradient_k12tt")
 
 [node name="Main" type="Node2D"]
 script = ExtResource("1_5wbwr")
@@ -120,13 +211,13 @@ tooltip_text = "Strike up a conversation"
 text = "Use
 "
 
-[node name="Cancel" type="Button" parent="ClickableOptions"]
-layout_mode = 2
-text = "Cancel"
-
 [node name="Enter" type="Button" parent="ClickableOptions"]
 layout_mode = 2
 text = "Enter"
+
+[node name="Cancel" type="Button" parent="ClickableOptions"]
+layout_mode = 2
+text = "Cancel"
 
 [node name="Inventory_UI" parent="." instance=ExtResource("10_hptm8")]
 offset_left = 730.0
@@ -134,74 +225,6 @@ offset_top = 21.0
 offset_right = 1872.0
 offset_bottom = 663.0
 mouse_filter = 2
-
-[node name="Manor" type="Node2D" parent="."]
-visible = false
-
-[node name="Manorhub" type="Sprite2D" parent="Manor"]
-z_index = -1
-position = Vector2(432, 324)
-scale = Vector2(0.54, 0.54)
-texture = ExtResource("9_ynf5e")
-
-[node name="Left Door" parent="Manor" instance=ExtResource("1_8oicw")]
-position = Vector2(65, 132)
-scale = Vector2(0.6, 2)
-skew = -0.0349066
-inspectable_res = SubResource("Resource_6iyac")
-
-[node name="Rug" parent="Manor" instance=ExtResource("1_8oicw")]
-position = Vector2(429, 558)
-scale = Vector2(4.04, 2.6)
-inspectable_res = SubResource("Resource_wsu2k")
-takeable_res = SubResource("Resource_k12tt")
-talkable_res = SubResource("Resource_h1bgf")
-usable_res = SubResource("Resource_b3802")
-enterable_res = SubResource("Resource_fevyy")
-
-[node name="Round Table" parent="Manor" instance=ExtResource("1_8oicw")]
-position = Vector2(632, 490)
-scale = Vector2(0.919995, 1.44)
-inspectable_res = SubResource("Resource_hibaj")
-takeable_res = SubResource("Resource_k12tt")
-talkable_res = SubResource("Resource_h1bgf")
-usable_res = SubResource("Resource_b3802")
-enterable_res = SubResource("Resource_fevyy")
-
-[node name="Hanger" parent="Manor" instance=ExtResource("1_8oicw")]
-position = Vector2(595, 337)
-scale = Vector2(0.519995, 2.32)
-inspectable_res = SubResource("Resource_pdsj5")
-takeable_res = SubResource("Resource_k12tt")
-talkable_res = SubResource("Resource_h1bgf")
-usable_res = SubResource("Resource_b3802")
-enterable_res = SubResource("Resource_fevyy")
-
-[node name="Painting" parent="Manor" instance=ExtResource("1_8oicw")]
-position = Vector2(659, 62)
-scale = Vector2(1.8, 1.3)
-inspectable_res = SubResource("Resource_ee4r6")
-takeable_res = SubResource("Resource_k12tt")
-talkable_res = SubResource("Resource_h1bgf")
-usable_res = SubResource("Resource_b3802")
-enterable_res = SubResource("Resource_fevyy")
-
-[node name="Alcohol" parent="Manor" instance=ExtResource("1_8oicw")]
-position = Vector2(159, 115)
-scale = Vector2(0.6, 0.66)
-inspectable_res = SubResource("Resource_jkdf5")
-takeable_res = SubResource("Resource_k12tt")
-talkable_res = SubResource("Resource_h1bgf")
-usable_res = SubResource("Resource_b3802")
-enterable_res = SubResource("Resource_fevyy")
-
-[node name="InventoryButton" type="Button" parent="."]
-visible = false
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Inventory"
-
-[node name="TextBox" type="CanvasLayer" parent="."]
 
 [node name="DialoguePlayer" type="Control" parent="."]
 texture_filter = 1
@@ -251,7 +274,6 @@ mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
 
 [node name="SpeakerLabel" type="RichTextLabel" parent="DialoguePlayer"]
-visible = false
 z_index = 1
 texture_filter = 1
 layout_mode = 1
@@ -270,7 +292,7 @@ anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 offset_top = -47.0
-offset_right = -598.0
+offset_right = -433.0
 offset_bottom = -126.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -279,7 +301,69 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
 [node name="TextTimer" type="Timer" parent="DialoguePlayer"]
 wait_time = 0.1
 
+[node name="Manor" type="Node2D" parent="."]
+visible = false
+
+[node name="Manorhub" type="Sprite2D" parent="Manor"]
+z_index = -1
+position = Vector2(432, 324)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("9_ynf5e")
+
+[node name="Left Door" parent="Manor" instance=ExtResource("1_8oicw")]
+position = Vector2(65, 132)
+scale = Vector2(0.6, 2)
+skew = -0.0349066
+inspectable_res = SubResource("Resource_6iyac")
+enterable_res = SubResource("Resource_e08e2")
+
+[node name="Rug" parent="Manor" instance=ExtResource("1_8oicw")]
+position = Vector2(429, 558)
+scale = Vector2(4.04, 2.6)
+inspectable_res = SubResource("Resource_wsu2k")
+takeable_res = SubResource("Resource_k12tt")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_fevyy")
+
+[node name="Round Table" parent="Manor" instance=ExtResource("1_8oicw")]
+position = Vector2(632, 490)
+scale = Vector2(0.919995, 1.44)
+inspectable_res = SubResource("Resource_hibaj")
+takeable_res = SubResource("Resource_k12tt")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_fevyy")
+
+[node name="Hanger" parent="Manor" instance=ExtResource("1_8oicw")]
+position = Vector2(595, 337)
+scale = Vector2(0.519995, 2.32)
+inspectable_res = SubResource("Resource_pdsj5")
+takeable_res = SubResource("Resource_k12tt")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_fevyy")
+
+[node name="Painting" parent="Manor" instance=ExtResource("1_8oicw")]
+position = Vector2(659, 62)
+scale = Vector2(1.8, 1.3)
+inspectable_res = SubResource("Resource_ee4r6")
+takeable_res = SubResource("Resource_k12tt")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_fevyy")
+
+[node name="Alcohol" parent="Manor" instance=ExtResource("1_8oicw")]
+position = Vector2(159, 115)
+scale = Vector2(0.6, 0.66)
+inspectable_res = SubResource("Resource_jkdf5")
+takeable_res = SubResource("Resource_k12tt")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_fevyy")
+
 [node name="Manor_Prehist" type="Node2D" parent="."]
+visible = false
 
 [node name="Manor_Prehisthub" type="Sprite2D" parent="Manor_Prehist"]
 z_index = -1
@@ -288,10 +372,10 @@ scale = Vector2(0.834783, 0.835052)
 texture = ExtResource("11_fdnlq")
 
 [node name="Note" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
-position = Vector2(240, 193)
+position = Vector2(308, 326)
 scale = Vector2(0.6, 0.66)
 inspectable_res = SubResource("Resource_gt3je")
-takeable_res = SubResource("Resource_k12tt")
+takeable_res = SubResource("Resource_3pmx8")
 talkable_res = SubResource("Resource_h1bgf")
 usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
@@ -299,19 +383,85 @@ enterable_res = SubResource("Resource_fevyy")
 [node name="Sprite2D" type="Sprite2D" parent="Manor_Prehist/Note"]
 position = Vector2(-1.07288e-05, -7.51019e-06)
 scale = Vector2(0.741423, 0.674021)
-texture = ExtResource("8_hptm8")
+texture = ExtResource("8_k12tt")
 
-[node name="Sprite2D2" type="Sprite2D" parent="Manor_Prehist"]
+[node name="Walkie" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
+position = Vector2(306, 210)
+scale = Vector2(0.6, 0.66)
+inspectable_res = SubResource("Resource_u50mg")
+takeable_res = SubResource("Resource_cbgmd")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_fevyy")
 
-[node name="Sprite2D3" type="Sprite2D" parent="Manor_Prehist"]
+[node name="Sprite2D" type="Sprite2D" parent="Manor_Prehist/Walkie"]
+position = Vector2(-1.07288e-05, -7.51019e-06)
+scale = Vector2(0.741423, 0.674021)
+texture = ExtResource("15_h1bgf")
+
+[node name="Bucket" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
+position = Vector2(372, 324)
+scale = Vector2(0.6, 0.66)
+inspectable_res = SubResource("Resource_1w6v2")
+takeable_res = SubResource("Resource_ueoa1")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_fevyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Manor_Prehist/Bucket"]
+position = Vector2(-1.07288e-05, -7.51019e-06)
+scale = Vector2(0.741423, 0.674021)
+texture = ExtResource("16_b3802")
+
+[node name="Dog" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
+position = Vector2(337, 442)
+scale = Vector2(2.16, 1.66)
+inspectable_res = SubResource("Resource_6vcvc")
+takeable_res = SubResource("Resource_ueoa1")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_fevyy")
+
+[node name="Leaf Bed" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
+position = Vector2(128, 457)
+scale = Vector2(2.78794, 2.76709)
+inspectable_res = SubResource("Resource_7k868")
+takeable_res = SubResource("Resource_ueoa1")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_fevyy")
+
+[node name="Mirror" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
+position = Vector2(501, 284)
+scale = Vector2(1.30795, 3.3311)
+inspectable_res = SubResource("Resource_hpc6h")
+takeable_res = SubResource("Resource_ueoa1")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_r33sp")
+
+[node name="Grug Default" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
+position = Vector2(771, 406)
+scale = Vector2(1.90795, 3.3311)
+inspectable_res = SubResource("Resource_neg2b")
+takeable_res = SubResource("Resource_ueoa1")
+talkable_res = SubResource("Resource_kltya")
+usable_res = SubResource("Resource_b3802")
+enterable_res = SubResource("Resource_fevyy")
+
+[node name="TextBox" type="CanvasLayer" parent="."]
+
+[node name="BlackBackground" type="Sprite2D" parent="."]
+position = Vector2(517.5, 326.75)
+scale = Vector2(5.04297, 654.5)
+texture = SubResource("GradientTexture1D_h1bgf")
 
 [connection signal="pressed" from="ClickableOptions/Inspect" to="ClickableOptions" method="_on_inspect_pressed"]
 [connection signal="pressed" from="ClickableOptions/Take" to="ClickableOptions" method="_on_take_pressed"]
 [connection signal="pressed" from="ClickableOptions/Talk" to="ClickableOptions" method="_on_talk_pressed"]
 [connection signal="pressed" from="ClickableOptions/Use" to="ClickableOptions" method="_on_use_pressed"]
-[connection signal="pressed" from="ClickableOptions/Cancel" to="ClickableOptions" method="_on_cancel_pressed"]
 [connection signal="pressed" from="ClickableOptions/Enter" to="ClickableOptions" method="_on_enter_pressed"]
-[connection signal="pressed" from="InventoryButton" to="Inventory_UI" method="_on_inventory_pressed"]
+[connection signal="pressed" from="ClickableOptions/Cancel" to="ClickableOptions" method="_on_cancel_pressed"]
 [connection signal="focus_entered" from="DialoguePlayer" to="DialoguePlayer" method="_on_focus_entered"]
 [connection signal="mouse_entered" from="DialoguePlayer" to="DialoguePlayer" method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="DialoguePlayer" to="DialoguePlayer" method="_on_mouse_exited"]

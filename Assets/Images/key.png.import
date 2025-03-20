@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://cq5xviq01b34r"
-path="res://.godot/imported/manorprehisNOTE.png-bea8dfc8f5d3018e5471a0173599c17d.ctex"
+uid="uid://ck80r08fn8d3j"
+path="res://.godot/imported/key.png-8573a9cc257708b20ead727147ed717a.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/manorprehisNOTE.png"
-dest_files=["res://.godot/imported/manorprehisNOTE.png-bea8dfc8f5d3018e5471a0173599c17d.ctex"]
+source_file="res://Assets/Images/key.png"
+dest_files=["res://.godot/imported/key.png-8573a9cc257708b20ead727147ed717a.ctex"]
 
 [params]
 

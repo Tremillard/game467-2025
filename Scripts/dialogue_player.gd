@@ -35,8 +35,8 @@ func _input(event):
 
 func on_display_dialogue(new_message):
 	print_message(new_message)
-func on_display_conversation(new_message,speaker):	
-	print_dialogue(new_message,speaker)
+func on_display_conversation(new_message,speaker, key = null):	
+	print_dialogue(new_message,speaker,key)
 
 
 func print_message(message):
@@ -57,7 +57,7 @@ func print_message(message):
 	#flag the printing as done so objects can be interacted
 	
 	
-func print_dialogue(message,speaker):
+func print_dialogue(message,speaker, key):
 	text_speed = .1
 	printed = ""
 	current_speaker = ""
@@ -80,7 +80,10 @@ func print_dialogue(message,speaker):
 		await self.next_message
 		counter += 1
 	Global.reading_in_progress = false
-	
+	if key == "introcutscene":
+		print("intro over")
+		$"../BlackBackground".hide()
+		$"../Manor".show()
 	
 func _on_mouse_entered():
 	Global.Selected_Object = self

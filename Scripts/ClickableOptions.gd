@@ -26,7 +26,7 @@ func _input(event):
 #When something is clicked show the UI and check what buttons should show
 func _is_clicked():
 	self.show()
-	self.position = get_global_mouse_position() + Vector2(60,-96)
+	self.position = get_global_mouse_position() #+ Vector2(60,-96)
 	check_ability()
 
 #check what the object is and stores data of it
@@ -41,7 +41,7 @@ func check_ability():
 		inspectable_script = selected.inspectable_res.text
 	if selected.takeable_res.show == true:
 		$Take.show()
-		takeable_script = selected.takeable_res.text
+		takeable_script = selected.takeable_res.pick_up_text
 		selected_takeable = selected
 	if selected.talkable_res.show == true:
 		$Talk.show()
@@ -75,11 +75,5 @@ func _on_use_pressed():
 	self.hide()
 
 func _on_enter_pressed():
-	SignalBus.emit_signal("enter", enterable_room)
-	_on_toggle_child_visibility()
+	SignalBus.emit_signal("enter", enterable_room.destination)
 	self.hide()
-	
-func _on_toggle_child_visibility():
-	var main = get_parent()  # This gets the parent of the current node (ClickableOptions)
-	main.get_node("Manor_Prehist").visible = true
-	main.get_node("Manor").visible = false
