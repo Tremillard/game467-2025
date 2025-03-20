@@ -27,12 +27,13 @@ func _on_use_button_pressed():
 	$UsagePanel.hide()
 
 func _on_item_button_pressed():
-	if item.key == "walkie" and Global.current_room == "manor":
-		SignalBus.emit_signal("display_conversation", Cutscenes.manorwalkie, Cutscenes.manorwalkiespeaker)
-		return
-	elif item != null and Global.reading_in_progress == false: 
-		SignalBus.emit_signal("display_dialogue", item.inspect_text)
-	#if $UsagePanel.visible == false and item != null:
-	#	$UsagePanel.show()
-	#elif $UsagePanel.visible == true:
-	#	$UsagePanel.hide()
+	if item != null and Global.reading_in_progress == false:
+		if item.key == "walkie" and Global.current_room == "manor":
+			SignalBus.emit_signal("display_conversation", Cutscenes.manorwalkie, Cutscenes.manorwalkiespeaker)
+			return
+		elif item != null: 
+			SignalBus.emit_signal("display_dialogue", item.inspect_text)
+		#if $UsagePanel.visible == false and item != null:
+		#	$UsagePanel.show()
+		#elif $UsagePanel.visible == true:
+		#	$UsagePanel.hide()
