@@ -31,8 +31,13 @@ func _on_item_button_pressed():
 		if item.key == "walkie" and Global.current_room == "manor":
 			SignalBus.emit_signal("display_conversation", Cutscenes.manorwalkie, Cutscenes.manorwalkiespeaker)
 			return
+		elif Global.using_item == true:
+			SignalBus.emit_signal("item_chosen",key)
 		elif item != null: 
 			SignalBus.emit_signal("display_dialogue", item.inspect_text)
+	elif item == null and Global.using_item == true:
+		SignalBus.emit_signal("item_chosen",null)
+	
 		#if $UsagePanel.visible == false and item != null:
 		#	$UsagePanel.show()
 		#elif $UsagePanel.visible == true:

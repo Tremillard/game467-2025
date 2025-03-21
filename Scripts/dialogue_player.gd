@@ -27,11 +27,8 @@ func _input(event):
 			if Global.reading_in_progress: 
 				text_speed = .01
 				next_message.emit()
-			else:
-				printed = ""
-				current_speaker = ""
-				background.visible = false
-				speaker_background.visible = false
+			elif Global.using_item == false:
+				clear_text()
 
 func on_display_dialogue(new_message):
 	print_message(new_message)
@@ -90,3 +87,9 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	Global.Selected_Object = null
+	
+func clear_text():
+	printed = ""
+	current_speaker = ""
+	background.visible = false
+	speaker_background.visible = false

@@ -12,3 +12,5 @@ var inventory = []
 @export var inventory_keys : Array
 # Current Room key
 @export var current_room : String
+
+@export var using_item : bool

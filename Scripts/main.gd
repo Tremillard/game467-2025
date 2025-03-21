@@ -1,12 +1,13 @@
 extends Node2D
 
-
+var currently_used_item
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SignalBus.connect("usability_trigger",on_usability_trigger)
 	SignalBus.connect("enter",on_enter_room)
-	
-	SignalBus.emit_signal("display_conversation", Cutscenes.intro, Cutscenes.introspeaker, "introcutscene")
+	SignalBus.connect("item_chosen",on_choose_item)
+	#$BlackBackground.show()
+	#SignalBus.emit_signal("display_conversation", Cutscenes.intro, Cutscenes.introspeaker, "introcutscene")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	pass
@@ -15,19 +16,29 @@ func _input(event):
 	pass
 
 func on_usability_trigger(key):
-	var usekey = key.key
-	print(usekey)
-	for i in Global.inventory_keys:
-		if i == usekey:
-			cause_change(usekey)
-			$Inventory_UI.remove_item(usekey)
-			$Inventory_UI.check_inventory()
-			#spend the item
+	Global.using_item = true
+	var targetkey = key.key
+	await SignalBus.item_chosen
+	if currently_used_item == targetkey:
+		cause_change(targetkey)
+		$Inventory_UI.remove_item(targetkey)
+		$Inventory_UI.check_inventory()
+		#spend the item
+	else: cause_change("nothing")
+	Global.using_item = false
 
 func cause_change(key):
 	if key == "left_door_key":
 		pass
-			
+	if key == "bone":
+		SignalBus.emit_signal("display_dialogue", Cutscenes.give_dog_bone)
+		$"Manor_Prehist/Cave Key Default".hide()
+		$"Manor_Prehist/Grug Default".hide()
+		$"Manor_Prehist/Cave Key Takeable".show()
+		$"Manor_Prehist/Grug Happy".show()
+	if key == "nothing":
+		SignalBus.emit_signal("display_dialogue", Cutscenes.nothing)
+
 func on_enter_room(destination):
 	if destination == "prehistoric":
 		$Manor.hide()
@@ -37,3 +48,7 @@ func on_enter_room(destination):
 		$Manor.show()
 		$Manor_Prehist.hide()
 		Global.current_room = "manor"
+
+func on_choose_item(itemkey):
+	currently_used_item = itemkey
+	
