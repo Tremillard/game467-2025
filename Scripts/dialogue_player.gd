@@ -47,7 +47,8 @@ func print_message(message):
 	for i in len(message):
 		var length : float = len(message)
 		text_label.visible_ratio = i/length
-		AudioPlayer.get_node("TalkSound").play()
+		if AudioPlayer.get_node("TalkSound").playing == false:
+			AudioPlayer.get_node("TalkSound").play()
 		await get_tree().create_timer(text_speed).timeout 
 	text_label.visible_ratio = 1
 	Global.reading_in_progress = false
@@ -70,7 +71,8 @@ func print_dialogue(message,speaker, key):
 		for i in len(line):
 			var length : float = len(line)
 			text_label.visible_ratio = float(i/length)
-			AudioPlayer.get_node("TalkSound").play()
+			if AudioPlayer.get_node("TalkSound").playing == false:
+				AudioPlayer.get_node("TalkSound").play()
 			await get_tree().create_timer(text_speed).timeout
 		text_label.visible_ratio = 1
 		if line == message[-1]: break 
@@ -81,6 +83,7 @@ func print_dialogue(message,speaker, key):
 		print("intro over")
 		$"../BlackBackground".hide()
 		$"../Manor".show()
+		AudioPlayer.get_node("DefaultMusic").play()
 	
 func _on_mouse_entered():
 	Global.Selected_Object = self

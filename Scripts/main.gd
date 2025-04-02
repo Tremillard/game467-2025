@@ -36,6 +36,8 @@ func cause_change(key):
 		$"Manor_Prehist/Grug Default".hide()
 		$"Manor_Prehist/Cave Key Takeable".show()
 		$"Manor_Prehist/Grug Happy".show()
+		$Manor_Prehist/Dog.hide()
+		$Manor_Prehist/DogNoUse.show()
 	if key == "nothing":
 		SignalBus.emit_signal("display_dialogue", Cutscenes.nothing)
 
