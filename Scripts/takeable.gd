@@ -8,6 +8,7 @@ signal send_item
 @export var inspect_text : String
 @export var texture : Texture
 @export var key : String
+@export var take_sound : AudioStream
 
 func take_item():
 	Global.added_item = self

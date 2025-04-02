@@ -25,3 +25,4 @@ volume_db = 8.0
 
 [node name="DoorSound" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("5_im4p7")
+volume_db = 8.0

@@ -3,6 +3,7 @@ extends VBoxContainer
 #Variables for storing the info of selected objects
 var inspectable_script = Inspectable
 var takeable_script = Takeable
+var takeable_sound 
 var talkable_script = Talkable
 var usable_script = Usable
 var enterable_room = Enterable
@@ -41,6 +42,7 @@ func check_ability():
 		inspectable_script = selected.inspectable_res.text
 	if selected.takeable_res.show == true:
 		$Take.show()
+		takeable_sound = selected.takeable_res.take_sound
 		takeable_script = selected.takeable_res.pick_up_text
 		selected_takeable = selected
 	if selected.talkable_res.show == true:
@@ -53,15 +55,22 @@ func check_ability():
 	if selected.enterable_res.show == true:
 		$Enter.show()
 		enterable_room = selected.enterable_res
+		
 
 #When the UI buttons are pressed, show the info and perform auxillary action (take the object)
 func _on_inspect_pressed():
 	SignalBus.emit_signal("display_dialogue", inspectable_script)
 	self.hide()
 func _on_take_pressed():
+	print(takeable_sound)
+	$"../ObjectSound".set_stream(takeable_sound)
+	$"../ObjectSound".play()
 	selected_takeable.takeable_res.take_item()
 	SignalBus.emit_signal("display_dialogue", takeable_script)
 	selected_takeable.queue_free()
+	#selected.get_children().stream = usable_script.use_sound
+	#selected.get_child("Sound").play
+	
 	self.hide()
 func _on_talk_pressed():
 	SignalBus.emit_signal("display_conversation", talkable_script, talkable_speaker)
@@ -77,4 +86,6 @@ func _on_use_pressed():
 
 func _on_enter_pressed():
 	SignalBus.emit_signal("enter", enterable_room.destination)
+	AudioPlayer.get_node("DoorSound").play()
+	#hey make it so u can customize the sound later
 	self.hide()
