@@ -310,7 +310,7 @@ text = "Talk"
 
 [node name="Use" type="Button" parent="ClickableOptions"]
 layout_mode = 2
-tooltip_text = "Strike up a conversation"
+tooltip_text = "Use something from your inventory"
 text = "Use
 "
 
@@ -567,7 +567,7 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_r33sp")
 
 [node name="Cave Key Default" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
-position = Vector2(369, 465)
+position = Vector2(374, 439)
 scale = Vector2(0.460835, 0.506918)
 inspectable_res = SubResource("Resource_aqgau")
 takeable_res = SubResource("Resource_jwpg7")
@@ -582,7 +582,7 @@ texture = ExtResource("18_b3802")
 
 [node name="Cave Key Takeable" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
 visible = false
-position = Vector2(378, 446)
+position = Vector2(369, 470)
 scale = Vector2(0.460835, 0.506918)
 inspectable_res = SubResource("Resource_8cuat")
 takeable_res = SubResource("Resource_o1aky")
@@ -596,7 +596,6 @@ scale = Vector2(1.53422, 1.39475)
 texture = ExtResource("18_b3802")
 
 [node name="Grug Default" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
-visible = false
 position = Vector2(771, 406)
 scale = Vector2(1.90795, 3.3311)
 inspectable_res = SubResource("Resource_neg2b")
@@ -606,6 +605,7 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Grug Happy" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
+visible = false
 position = Vector2(771, 406)
 scale = Vector2(1.90795, 3.3311)
 inspectable_res = SubResource("Resource_kwxat")

@@ -57,5 +57,5 @@ func on_choose_item(itemkey):
 func check_story_flags():
 	if StoryFlags.has_listened_to_walkie == true:
 		$"Manor_Prehist/Grug Happy".switch_resource(load("res://Resources/grugidentity.tres"))
-
+		
 	

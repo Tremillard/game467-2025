@@ -15,7 +15,7 @@ var selected_takeable
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	selected = Global.Selected_Object
-
+	print(selected)
 #Read click inputs over selected objects
 func _input(event):
 	if event is InputEventMouseButton:
@@ -23,6 +23,9 @@ func _input(event):
 		#and the UI isn't reading, show the options
 		if event.button_index == MOUSE_BUTTON_LEFT and event.is_released() and selected != null and Global.reading_in_progress == false and Global.using_item == false:
 			_is_clicked()
+		elif event.is_released(): 
+			await get_tree().create_timer(.1).timeout  
+			self.hide()
 
 #When something is clicked show the UI and check what buttons should show
 func _is_clicked():
