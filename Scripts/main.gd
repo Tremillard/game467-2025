@@ -10,7 +10,7 @@ func _ready():
 	#SignalBus.emit_signal("display_conversation", Cutscenes.intro, Cutscenes.introspeaker, "introcutscene")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
-	pass
+	check_story_flags()
 	
 func _input(event):
 	pass
@@ -53,4 +53,9 @@ func on_enter_room(destination):
 
 func on_choose_item(itemkey):
 	currently_used_item = itemkey
+	
+func check_story_flags():
+	if StoryFlags.has_listened_to_walkie == true:
+		$"Manor_Prehist/Grug Happy".switch_resource(load("res://Resources/grugidentity.tres"))
+
 	

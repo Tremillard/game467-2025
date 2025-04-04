@@ -3,7 +3,7 @@ extends Control
 var selected_text
 var printed = ""
 var current_speaker = ""
-@export var text_speed = .1
+@export var text_speed = .03
 @onready var text_label = $TextLabel
 @onready var background = $Background
 @onready var speaker_text_label = $Speaker
@@ -25,7 +25,7 @@ func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
 			if Global.reading_in_progress: 
-				text_speed = .01
+				text_speed = .001
 				next_message.emit()
 			elif Global.using_item == false:
 				clear_text()
@@ -41,7 +41,7 @@ func print_message(message):
 	printed = message
 	background.visible = true
 	Global.reading_in_progress = true
-	text_speed = .1
+	text_speed = .03
 	text_label.visible_ratio = 0
 	#for length of message, print out a letter
 	for i in len(message):
@@ -56,7 +56,7 @@ func print_message(message):
 	
 	
 func print_dialogue(message,speaker, key):
-	text_speed = .1
+	text_speed = .03
 	printed = ""
 	current_speaker = ""
 	background.visible = true

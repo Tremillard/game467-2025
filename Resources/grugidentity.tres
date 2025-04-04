@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Talkable" load_steps=2 format=3 uid="uid://5eiwvy2sojdc"]
+
+[ext_resource type="Script" uid="uid://dm7a2bwo0hbw0" path="res://Scripts/talkable.gd" id="1_i8bne"]
+
+[resource]
+script = ExtResource("1_i8bne")
+text = PackedStringArray("New Text")
+show = true
+speaker = PackedStringArray("Speaker")
+metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"

@@ -21,6 +21,7 @@ AudioPlayer="*res://Scenes/audio_player.tscn"
 Global="*res://Scripts/Singletons/global.gd"
 SignalBus="*res://Scripts/Singletons/signal_bus.gd"
 Cutscenes="*res://Scripts/Singletons/Cutscenes.gd"
+StoryFlags="*res://Scripts/Singletons/story_flags.gd"
 
 [display]
 

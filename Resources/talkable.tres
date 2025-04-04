@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_vvku1")
-text = PackedStringArray("I haven\'t been set up yet!")
+text = PackedStringArray("not set up")
 show = false
-speaker = PackedStringArray("Debug")
+speaker = PackedStringArray("debug")
 metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"

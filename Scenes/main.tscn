@@ -105,7 +105,7 @@ metadata/_custom_type_script = "uid://bjnyes25dp115"
 script = ExtResource("4_fb3mb")
 show = true
 pick_up_text = "You snatch the paper up."
-inspect_text = "It reads: \"I don't know what this is supposed to say yet, but it's probably important! -CSD\""
+inspect_text = "The paper looks like a search warrant for the mansion that somone was task to investigate."
 texture = ExtResource("8_k12tt")
 key = "note"
 metadata/_custom_type_script = "uid://b2m6w2fqm504y"
@@ -473,7 +473,7 @@ position = Vector2(432, 324)
 scale = Vector2(0.834783, 0.835052)
 texture = ExtResource("11_fdnlq")
 
-[node name="Note" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
+[node name="Search Warrant" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
 position = Vector2(308, 326)
 scale = Vector2(0.6, 0.66)
 inspectable_res = SubResource("Resource_gt3je")
@@ -482,7 +482,7 @@ talkable_res = SubResource("Resource_h1bgf")
 usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
-[node name="Sprite2D" type="Sprite2D" parent="Manor_Prehist/Note"]
+[node name="Sprite2D" type="Sprite2D" parent="Manor_Prehist/Search Warrant"]
 position = Vector2(-1.07288e-05, -7.51019e-06)
 scale = Vector2(0.741423, 0.674021)
 texture = ExtResource("8_k12tt")
@@ -567,7 +567,7 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_r33sp")
 
 [node name="Cave Key Default" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
-position = Vector2(378, 446)
+position = Vector2(369, 465)
 scale = Vector2(0.460835, 0.506918)
 inspectable_res = SubResource("Resource_aqgau")
 takeable_res = SubResource("Resource_jwpg7")
@@ -576,7 +576,7 @@ usable_res = SubResource("Resource_k2e45")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Manor_Prehist/Cave Key Default"]
-position = Vector2(-1.07288e-05, -5.34058e-05)
+position = Vector2(-1.07288e-05, -1.9727)
 scale = Vector2(1.53422, 1.39475)
 texture = ExtResource("18_b3802")
 
@@ -596,6 +596,7 @@ scale = Vector2(1.53422, 1.39475)
 texture = ExtResource("18_b3802")
 
 [node name="Grug Default" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
+visible = false
 position = Vector2(771, 406)
 scale = Vector2(1.90795, 3.3311)
 inspectable_res = SubResource("Resource_neg2b")
@@ -605,7 +606,6 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Grug Happy" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
-visible = false
 position = Vector2(771, 406)
 scale = Vector2(1.90795, 3.3311)
 inspectable_res = SubResource("Resource_kwxat")

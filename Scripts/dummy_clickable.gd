@@ -13,3 +13,7 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	Global.Selected_Object = null
+
+func switch_resource(new_resource):
+	if new_resource is Talkable:
+		talkable_res = new_resource
