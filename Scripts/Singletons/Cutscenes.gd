@@ -92,3 +92,4 @@ extends Node
 
 @export var nothing = "Nothing happens."
 @export var give_dog_bone = "The dog yips happily! Perhaps I can take the bone now..."
+@export var unlock_saloon_door = "The door unlocks. Nice."

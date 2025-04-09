@@ -30,6 +30,11 @@ func on_usability_trigger(key):
 func cause_change(key):
 	if key == "left_door_key":
 		pass
+	if key == "saloon_key":
+		$"Manor/Middle Door".switch_resource(load("res://Resources/saloon_unlocked_enterable.tres"))
+		$"Manor/Middle Door".switch_resource(load("res://Resources/saloon_unlocked_inspectable.tres"))
+		$"Manor/Middle Door".switch_resource(load("res://Resources/usable.tres"))
+		SignalBus.emit_signal("display_dialogue", Cutscenes.unlock_saloon_door)
 	if key == "bone":
 		SignalBus.emit_signal("display_dialogue", Cutscenes.give_dog_bone)
 		$"Manor_Prehist/Cave Key Default".hide()
@@ -44,12 +49,19 @@ func cause_change(key):
 func on_enter_room(destination):
 	if destination == "prehistoric":
 		$Manor.hide()
+		$Manor_Saloon.hide()
 		$Manor_Prehist.show()
 		Global.current_room = "prehistoric"
 	if destination == "manor":
 		$Manor.show()
+		$Manor_Saloon.hide()
 		$Manor_Prehist.hide()
 		Global.current_room = "manor"
+	if destination == "saloon":
+		$Manor.hide()
+		$Manor_Prehist.hide()
+		$Manor_Saloon.show()
+		Global.current_room = "saloon"
 
 func on_choose_item(itemkey):
 	currently_used_item = itemkey

@@ -1,4 +1,4 @@
-[gd_scene load_steps=60 format=4 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=64 format=4 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
@@ -19,6 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://juxdv0n06ve3" path="res://Assets/Images/bone.png" id="16_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://ck80r08fn8d3j" path="res://Assets/Images/key.png" id="18_b3802"]
 [ext_resource type="AudioStream" uid="uid://dk72unnfr578e" path="res://Assets/Audio/Door_Opening.wav" id="18_fevyy"]
+[ext_resource type="Texture2D" uid="uid://ecfs8mii6yig" path="res://Assets/Images/manorsaloonflats.png" id="20_hibaj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptm8"]
 bg_color = Color(0.105882, 0.105882, 0.105882, 0.615686)
@@ -33,6 +34,26 @@ metadata/_custom_type_script = "uid://bjnyes25dp115"
 script = ExtResource("11_jkdf5")
 show = true
 destination = "prehistoric"
+enter_sound = ExtResource("18_fevyy")
+metadata/_custom_type_script = "uid://cluy2etoai2p2"
+
+[sub_resource type="Resource" id="Resource_v2nl5"]
+script = ExtResource("4_6iyac")
+text = "It's a door. I can hear some hootin' and hollerin' on the other side. However, it's locked. Darn."
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_dmskm"]
+script = ExtResource("9_6iyac")
+text = "The key unlocks the door. Nice."
+show = true
+key = "saloon_key"
+metadata/_custom_type_script = "uid://w0q7anfur22h"
+
+[sub_resource type="Resource" id="Resource_xdkp6"]
+script = ExtResource("11_jkdf5")
+show = false
+destination = "saloon"
 enter_sound = ExtResource("18_fevyy")
 metadata/_custom_type_script = "uid://cluy2etoai2p2"
 
@@ -247,7 +268,7 @@ show = true
 pick_up_text = "You untie and collect the key."
 inspect_text = "A key. Where does it go?"
 texture = ExtResource("18_b3802")
-key = "first_key"
+key = "saloon_key"
 metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
 [sub_resource type="Resource" id="Resource_neg2b"]
@@ -405,7 +426,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
 wait_time = 0.1
 
 [node name="Manor" type="Node2D" parent="."]
-visible = false
 
 [node name="Manorhub" type="Sprite2D" parent="Manor"]
 z_index = -1
@@ -419,6 +439,13 @@ scale = Vector2(0.6, 2)
 skew = -0.0349066
 inspectable_res = SubResource("Resource_6iyac")
 enterable_res = SubResource("Resource_e08e2")
+
+[node name="Middle Door" parent="Manor" instance=ExtResource("1_8oicw")]
+position = Vector2(432, 113)
+scale = Vector2(0.96, 1.6)
+inspectable_res = SubResource("Resource_v2nl5")
+usable_res = SubResource("Resource_dmskm")
+enterable_res = SubResource("Resource_xdkp6")
 
 [node name="Rug" parent="Manor" instance=ExtResource("1_8oicw")]
 position = Vector2(429, 558)
@@ -466,6 +493,7 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Manor_Prehist" type="Node2D" parent="."]
+visible = false
 
 [node name="Manor_Prehisthub" type="Sprite2D" parent="Manor_Prehist"]
 z_index = -1
@@ -613,6 +641,15 @@ takeable_res = SubResource("Resource_ueoa1")
 talkable_res = SubResource("Resource_aa8k8")
 usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
+
+[node name="Manor_Saloon" type="Node2D" parent="."]
+visible = false
+
+[node name="Sprite2D" type="Sprite2D" parent="Manor_Saloon"]
+z_index = -2
+position = Vector2(432, 324)
+scale = Vector2(0.54, 0.54)
+texture = ExtResource("20_hibaj")
 
 [node name="TextBox" type="CanvasLayer" parent="."]
 

@@ -15,7 +15,6 @@ var selected_takeable
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	selected = Global.Selected_Object
-	print(selected)
 #Read click inputs over selected objects
 func _input(event):
 	if event is InputEventMouseButton:

@@ -18,3 +18,11 @@ func _on_mouse_exited():
 func switch_resource(new_resource):
 	if new_resource is Talkable:
 		talkable_res = new_resource
+	if new_resource is Inspectable:
+		inspectable_res = new_resource
+	if new_resource is Enterable:
+		enterable_res = new_resource
+	if new_resource is Takeable:
+		takeable_res = new_resource
+	if new_resource is Usable:
+		usable_res = new_resource

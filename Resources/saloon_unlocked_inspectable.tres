@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Inspectable" load_steps=2 format=3 uid="uid://bexe53kj38w0v"]
+
+[ext_resource type="Script" uid="uid://bjnyes25dp115" path="res://Scripts/inspectable.gd" id="1_u80pe"]
+
+[resource]
+script = ExtResource("1_u80pe")
+text = "This door leads to the saloon. Yeehaw!"
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
