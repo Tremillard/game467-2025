@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ecfs8mii6yig"
-path="res://.godot/imported/manorsaloonflats.png-d5566ebf80602db1dd74acca39b50f0e.ctex"
+uid="uid://b8cyg2n2mhsp"
+path="res://.godot/imported/manor_saloon.png-737a7d5dd84c1c5e4e9b20c0f3344f90.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Assets/Images/manorsaloonflats.png"
-dest_files=["res://.godot/imported/manorsaloonflats.png-d5566ebf80602db1dd74acca39b50f0e.ctex"]
+source_file="res://Assets/Images/manor_saloon.png"
+dest_files=["res://.godot/imported/manor_saloon.png-737a7d5dd84c1c5e4e9b20c0f3344f90.ctex"]
 
 [params]
 

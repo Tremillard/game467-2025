@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=4 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=65 format=4 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
@@ -19,7 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://juxdv0n06ve3" path="res://Assets/Images/bone.png" id="16_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://ck80r08fn8d3j" path="res://Assets/Images/key.png" id="18_b3802"]
 [ext_resource type="AudioStream" uid="uid://dk72unnfr578e" path="res://Assets/Audio/Door_Opening.wav" id="18_fevyy"]
-[ext_resource type="Texture2D" uid="uid://ecfs8mii6yig" path="res://Assets/Images/manorsaloonflats.png" id="20_hibaj"]
+[ext_resource type="Texture2D" uid="uid://b8cyg2n2mhsp" path="res://Assets/Images/manor_saloon.png" id="20_hibaj"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptm8"]
 bg_color = Color(0.105882, 0.105882, 0.105882, 0.615686)
@@ -297,6 +297,12 @@ show = true
 speaker = PackedStringArray("Dog", "Logan", "Grug", "Dog", "Grug", "Logan", "Logan", "Grug", "Grug", "Logan", "Logan")
 metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"
 
+[sub_resource type="Resource" id="Resource_54nrm"]
+script = ExtResource("11_jkdf5")
+show = true
+destination = "manor"
+metadata/_custom_type_script = "uid://cluy2etoai2p2"
+
 [sub_resource type="Gradient" id="Gradient_k12tt"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
 
@@ -426,6 +432,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
 wait_time = 0.1
 
 [node name="Manor" type="Node2D" parent="."]
+visible = false
 
 [node name="Manorhub" type="Sprite2D" parent="Manor"]
 z_index = -1
@@ -643,13 +650,55 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Manor_Saloon" type="Node2D" parent="."]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Manor_Saloon"]
 z_index = -2
 position = Vector2(432, 324)
 scale = Vector2(0.54, 0.54)
 texture = ExtResource("20_hibaj")
+
+[node name="Exit Sign" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(826, 247)
+scale = Vector2(0.88002, 1.28)
+enterable_res = SubResource("Resource_54nrm")
+
+[node name="Winchester" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(593, 195)
+scale = Vector2(2.4, 0.480001)
+
+[node name="Stout Bottle" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(377, 294)
+scale = Vector2(0.56261, 0.659532)
+
+[node name="Tall Bottle" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(340, 290)
+scale = Vector2(0.2826, 0.783454)
+
+[node name="Guy" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(621, 383)
+scale = Vector2(1.3626, 4.02345)
+
+[node name="Window" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(157, 263)
+scale = Vector2(1.35986, 2.7738)
+
+[node name="Darts Board" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(38, 254)
+scale = Vector2(1.27986, 1.81257)
+
+[node name="Darts Instructions" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(48, 384)
+rotation = -0.249582
+scale = Vector2(0.956896, 1.09418)
+skew = 0.225147
+
+[node name="Saloon Sign" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(532, 75)
+scale = Vector2(5.43999, 1.4)
+
+[node name="Wanted Poster" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(746, 236)
+scale = Vector2(-0.561957, 1.03851)
 
 [node name="TextBox" type="CanvasLayer" parent="."]
 
