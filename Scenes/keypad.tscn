@@ -41,6 +41,18 @@ theme = ExtResource("2_cam67")
 theme_override_font_sizes/font_size = 64
 text = "XX XXX XXXX"
 
+[node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 0
+theme_override_constants/margin_right = 500
+theme_override_constants/margin_bottom = 120
+
+[node name="Done" type="Button" parent="VBoxContainer/MarginContainer/MarginContainer2"]
+layout_mode = 2
+theme = ExtResource("2_cam67")
+theme_override_font_sizes/font_size = 24
+text = "Done"
+
 [node name="GridContainer" type="GridContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -130,6 +142,7 @@ size_flags_vertical = 3
 theme = ExtResource("2_cam67")
 text = "enter"
 
+[connection signal="pressed" from="VBoxContainer/MarginContainer/MarginContainer2/Done" to="." method="_on_done_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button2" to="." method="_on_button_2_pressed"]
 [connection signal="pressed" from="VBoxContainer/GridContainer/Button3" to="." method="_on_button_3_pressed"]

@@ -3,10 +3,9 @@ const PASSWORD = "32 180 1888"
 var pointer = 0
 var can_print = true
 @onready var text = $VBoxContainer/MarginContainer/Label.text
-@onready var curkey = $VBoxContainer/MarginContainer/Label.text
 
 func _process(delta):
-	text = curkey
+	$VBoxContainer/MarginContainer/Label.text = text
 	if pointer == 2:
 		pointer = 3
 	if pointer == 6:
@@ -15,10 +14,9 @@ func _process(delta):
 		can_print = false
 func key_press(digit):
 	if can_print:
-		curkey[pointer] = str(digit)
-		
+		text[pointer] = str(digit)
 		pointer += 1
-		print(curkey)
+		print(text)
 		
 
 
@@ -59,7 +57,7 @@ func _on_button_9_pressed():
 
 
 func _on_button_clear_pressed():
-	curkey = "XX XXX XXXX"
+	text = "XX XXX XXXX"
 	pointer = 0
 	can_print = true
 
@@ -69,5 +67,9 @@ func _on_button_0_pressed():
 
 
 func _on_button_enter_pressed():
-	if curkey == PASSWORD:
+	if text == PASSWORD:
 		print("yay")
+
+
+func _on_done_pressed():
+	hide()
