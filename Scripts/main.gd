@@ -13,7 +13,10 @@ func _process(_delta):
 	check_story_flags()
 	
 func _input(event):
-	pass
+	if event.is_action_pressed("save_game"):
+		SaveManager.save_game()
+	elif event.is_action_pressed("load_game"):
+		SaveManager.apply_save_data()
 
 func on_usability_trigger(key):
 	Global.using_item = true
@@ -70,4 +73,3 @@ func check_story_flags():
 	if StoryFlags.has_listened_to_walkie == true:
 		$"Manor_Prehist/Grug Happy".switch_resource(load("res://Resources/grugidentity.tres"))
 		
-	
