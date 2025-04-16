@@ -1,4 +1,4 @@
-[gd_scene load_steps=65 format=4 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=69 format=4 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
@@ -19,7 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://juxdv0n06ve3" path="res://Assets/Images/bone.png" id="16_h1bgf"]
 [ext_resource type="Texture2D" uid="uid://ck80r08fn8d3j" path="res://Assets/Images/key.png" id="18_b3802"]
 [ext_resource type="AudioStream" uid="uid://dk72unnfr578e" path="res://Assets/Audio/Door_Opening.wav" id="18_fevyy"]
-[ext_resource type="Texture2D" uid="uid://b8cyg2n2mhsp" path="res://Assets/Images/manor_saloon.png" id="20_hibaj"]
+[ext_resource type="Texture2D" uid="uid://b762vo30kr37q" path="res://Assets/Images/manorsaloonfinWS.png" id="20_hibaj"]
+[ext_resource type="PackedScene" uid="uid://cmn3ae3eiy5vl" path="res://Scenes/keypad.tscn" id="21_pdsj5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptm8"]
 bg_color = Color(0.105882, 0.105882, 0.105882, 0.615686)
@@ -27,6 +28,7 @@ bg_color = Color(0.105882, 0.105882, 0.105882, 0.615686)
 [sub_resource type="Resource" id="Resource_6iyac"]
 script = ExtResource("4_6iyac")
 text = "It's a door. I can hear stones banging on the other side."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -40,6 +42,7 @@ metadata/_custom_type_script = "uid://cluy2etoai2p2"
 [sub_resource type="Resource" id="Resource_v2nl5"]
 script = ExtResource("4_6iyac")
 text = "It's a door. I can hear some hootin' and hollerin' on the other side. However, it's locked. Darn."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -60,6 +63,7 @@ metadata/_custom_type_script = "uid://cluy2etoai2p2"
 [sub_resource type="Resource" id="Resource_wsu2k"]
 script = ExtResource("4_6iyac")
 text = "Its a large, expensive looking rug. It covers a wide area, leading to the double doors."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -95,30 +99,35 @@ metadata/_custom_type_script = "uid://cluy2etoai2p2"
 [sub_resource type="Resource" id="Resource_hibaj"]
 script = ExtResource("4_6iyac")
 text = "A porcelain vase holding a dead flower. It can't have been dead for long... (No dust on the table?)"
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_pdsj5"]
 script = ExtResource("4_6iyac")
 text = "An intricate coat rack with an ornate design winding up the pole. Too heavy to move, perhaps secured to the floor..."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_ee4r6"]
 script = ExtResource("4_6iyac")
 text = "This painting has been torn, perhaps on purpose. The figure is impossible to make put, perhaps a previous owner of the mansion..?"
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_jkdf5"]
 script = ExtResource("4_6iyac")
 text = "A bottle with looks and smells to be some alcohol, maybe someone got a bit tipsy during the night."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_gt3je"]
 script = ExtResource("4_6iyac")
 text = "A piece of paper? I wonder what it reads."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -134,6 +143,7 @@ metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 [sub_resource type="Resource" id="Resource_u50mg"]
 script = ExtResource("4_6iyac")
 text = "This place seems based on Prehistoric times, but a walkie talkie seemed to make it here, better hold on to it for safe keeping."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -149,6 +159,7 @@ metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 [sub_resource type="Resource" id="Resource_536cc"]
 script = ExtResource("4_6iyac")
 text = "I hope this isn't a human bone..."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -177,6 +188,7 @@ metadata/_custom_type_script = "uid://w0q7anfur22h"
 [sub_resource type="Resource" id="Resource_1w6v2"]
 script = ExtResource("4_6iyac")
 text = "It's a bucket. Suprisingly, made of metal."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -192,6 +204,7 @@ metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 [sub_resource type="Resource" id="Resource_6vcvc"]
 script = ExtResource("4_6iyac")
 text = "The dog sleeps so soundly, but if I want that key I'm gonna have to find a way to get it from him."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -205,6 +218,7 @@ metadata/_custom_type_script = "uid://w0q7anfur22h"
 [sub_resource type="Resource" id="Resource_jut3y"]
 script = ExtResource("4_6iyac")
 text = "Since the dog's chewing the bone, I should be able to take the key."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -218,12 +232,14 @@ metadata/_custom_type_script = "uid://w0q7anfur22h"
 [sub_resource type="Resource" id="Resource_7k868"]
 script = ExtResource("4_6iyac")
 text = "This bed looks a bit uncomfortable with the mattress being a rock, better not mess with it though if I want to get on Grug's good side."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_hpc6h"]
 script = ExtResource("4_6iyac")
 text = "I can see my reflection through the mirror, though it seems cracked. The door is visible, too."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -244,6 +260,7 @@ metadata/_custom_type_script = "uid://cluy2etoai2p2"
 [sub_resource type="Resource" id="Resource_aqgau"]
 script = ExtResource("4_6iyac")
 text = "There's a key around the dog's collar. I don't feel safe taking it..."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -259,6 +276,7 @@ metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 [sub_resource type="Resource" id="Resource_8cuat"]
 script = ExtResource("4_6iyac")
 text = "There's a key around the dog's collar. Since it's happy with the bone, perhaps I can snatch it..."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -274,6 +292,7 @@ metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 [sub_resource type="Resource" id="Resource_neg2b"]
 script = ExtResource("4_6iyac")
 text = "A caveman. He seems to go by \"Grug\"."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -287,6 +306,7 @@ metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"
 [sub_resource type="Resource" id="Resource_kwxat"]
 script = ExtResource("4_6iyac")
 text = "A caveman. He seems to go by \"Grug\"."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -302,6 +322,21 @@ script = ExtResource("11_jkdf5")
 show = true
 destination = "manor"
 metadata/_custom_type_script = "uid://cluy2etoai2p2"
+
+[sub_resource type="Gradient" id="Gradient_pdsj5"]
+colors = PackedColorArray(0, 0, 0, 0.784314, 0.577008, 0.577008, 0.577008, 0.784314)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_ee4r6"]
+gradient = SubResource("Gradient_pdsj5")
+width = 649
+height = 864
+
+[sub_resource type="Resource" id="Resource_55jeb"]
+script = ExtResource("4_6iyac")
+text = "Let's try to crack this safe. "
+show_key = "safe"
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Gradient" id="Gradient_k12tt"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -699,6 +734,25 @@ scale = Vector2(5.43999, 1.4)
 [node name="Wanted Poster" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
 position = Vector2(746, 236)
 scale = Vector2(-0.561957, 1.03851)
+
+[node name="Keypad" parent="Manor_Saloon" instance=ExtResource("21_pdsj5")]
+offset_left = 426.0
+offset_top = 309.0
+offset_right = 426.0
+offset_bottom = 309.0
+size_flags_horizontal = 0
+metadata/_edit_use_anchors_ = true
+
+[node name="Mask" type="Sprite2D" parent="Manor_Saloon/Keypad"]
+z_index = -1
+position = Vector2(6, 15)
+rotation = -1.5708
+texture = SubResource("GradientTexture2D_ee4r6")
+
+[node name="Safe" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+position = Vector2(350, 217)
+scale = Vector2(0.825951, -0.742702)
+inspectable_res = SubResource("Resource_55jeb")
 
 [node name="TextBox" type="CanvasLayer" parent="."]
 

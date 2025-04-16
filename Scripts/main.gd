@@ -7,6 +7,7 @@ func _ready():
 	SignalBus.connect("usability_trigger",on_usability_trigger)
 	SignalBus.connect("enter",on_enter_room)
 	SignalBus.connect("item_chosen",on_choose_item)
+	SignalBus.connect("inspect_show",on_inspect_show)
 	#$BlackBackground.show()
 	#SignalBus.emit_signal("display_conversation", Cutscenes.intro, Cutscenes.introspeaker, "introcutscene")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -80,6 +81,11 @@ func on_enter_room(destination):
 func on_choose_item(itemkey):
 	currently_used_item = itemkey
 
+func on_inspect_show(show_key):
+	if show_key == "safe":
+		await get_tree().create_timer(1.3).timeout 
+		$Manor_Saloon/Keypad.show()
+		get_tree().paused = true
 #Function to trigger cutscenes/change item resoureces
 func check_story_flags():
 	if StoryFlags.has_listened_to_walkie == true:
