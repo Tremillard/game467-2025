@@ -431,7 +431,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
 [node name="TextTimer" type="Timer" parent="DialoguePlayer"]
 wait_time = 0.1
 
-[node name="Manor" type="Node2D" parent="."]
+[node name="Manor" type="Node2D" parent="." groups=["Rooms"]]
 visible = false
 
 [node name="Manorhub" type="Sprite2D" parent="Manor"]
@@ -499,8 +499,7 @@ talkable_res = SubResource("Resource_h1bgf")
 usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
-[node name="Manor_Prehist" type="Node2D" parent="."]
-visible = false
+[node name="Manor_Prehist" type="Node2D" parent="." groups=["Rooms"]]
 
 [node name="Manor_Prehisthub" type="Sprite2D" parent="Manor_Prehist"]
 z_index = -1
@@ -649,7 +648,8 @@ talkable_res = SubResource("Resource_aa8k8")
 usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
-[node name="Manor_Saloon" type="Node2D" parent="."]
+[node name="Manor_Saloon" type="Node2D" parent="." groups=["Rooms"]]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Manor_Saloon"]
 z_index = -2
