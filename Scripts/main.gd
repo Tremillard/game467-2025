@@ -3,6 +3,7 @@ extends Node2D
 var currently_used_item
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	#Connect Signals
 	SignalBus.connect("usability_trigger",on_usability_trigger)
 	SignalBus.connect("enter",on_enter_room)
 	SignalBus.connect("item_chosen",on_choose_item)
@@ -10,6 +11,7 @@ func _ready():
 	#SignalBus.emit_signal("display_conversation", Cutscenes.intro, Cutscenes.introspeaker, "introcutscene")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
+	#This is to trigger cutscenes/change item resoureces
 	check_story_flags()
 	
 func _input(event):
@@ -18,18 +20,24 @@ func _input(event):
 	elif event.is_action_pressed("load_game"):
 		SaveManager.apply_save_data()
 
+#Triggers when "Use" is selected from Clickable Options
+#It turns off some click functionality so the game doesn't get confused
 func on_usability_trigger(key):
 	Global.using_item = true
 	var targetkey = key.key
+	#Stall until item is selected
 	await SignalBus.item_chosen
 	if currently_used_item == targetkey:
 		cause_change(targetkey)
 		$Inventory_UI.remove_item(targetkey)
 		$Inventory_UI.check_inventory()
-		#spend the item
-	else: cause_change("nothing")
+		#spend the item and change something
+	else: 
+		cause_change("nothing")
 	Global.using_item = false
 
+#Function for changing all of the things in the game
+#Triggers off of usability trigger
 func cause_change(key):
 	if key == "left_door_key":
 		pass
@@ -49,6 +57,8 @@ func cause_change(key):
 	if key == "nothing":
 		SignalBus.emit_signal("display_dialogue", Cutscenes.nothing)
 
+#Function for changing between all of the rooms in the game
+#Hardcoded because it's a small game haha
 func on_enter_room(destination):
 	if destination == "prehistoric":
 		$Manor.hide()
@@ -66,9 +76,11 @@ func on_enter_room(destination):
 		$Manor_Saloon.show()
 		Global.current_room = "saloon"
 
+
 func on_choose_item(itemkey):
 	currently_used_item = itemkey
-	
+
+#Function to trigger cutscenes/change item resoureces
 func check_story_flags():
 	if StoryFlags.has_listened_to_walkie == true:
 		$"Manor_Prehist/Grug Happy".switch_resource(load("res://Resources/grugidentity.tres"))

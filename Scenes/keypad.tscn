@@ -34,12 +34,14 @@ size_flags_vertical = 3
 layout_mode = 2
 color = Color(0.507314, 0.507315, 0.507314, 1)
 
-[node name="Label" type="Label" parent="VBoxContainer/MarginContainer"]
+[node name="Label" type="RichTextLabel" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 theme = ExtResource("2_cam67")
-theme_override_font_sizes/font_size = 64
+theme_override_font_sizes/normal_font_size = 64
+bbcode_enabled = true
 text = "XX XXX XXXX"
+horizontal_alignment = 1
+vertical_alignment = 1
 
 [node name="MarginContainer2" type="MarginContainer" parent="VBoxContainer/MarginContainer"]
 layout_mode = 2

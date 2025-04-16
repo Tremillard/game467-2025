@@ -15,6 +15,9 @@ func _on_mouse_exited():
 	if Global.Selected_Object == self:
 		Global.Selected_Object = null
 
+# Switches from resource A to resource B - 
+# essentially switching what text shows
+
 func switch_resource(new_resource):
 	if new_resource is Talkable:
 		talkable_res = new_resource

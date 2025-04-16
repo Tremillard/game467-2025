@@ -11,16 +11,19 @@ var current_speaker = ""
 
 signal next_message()
 
+#Connect signals on ready
 func _ready():
 	background.visible = false
 	SignalBus.connect("display_dialogue",on_display_dialogue)
 	SignalBus.connect("display_conversation",on_display_conversation)
+#Update labels every frame
 func _process(delta):
 	text_label.text = printed
 	speaker_text_label.text = current_speaker
 	#code to make the window scroll faster if the text is not done
 	#or close the window/go to the next message if it is
 
+# If clicking, make the text go faster or go to next dialogue
 func _input(event):
 	if event is InputEventMouseButton:
 		if event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
@@ -30,12 +33,13 @@ func _input(event):
 			elif Global.using_item == false:
 				clear_text()
 
+#Signal busses for one/many dialogues
 func on_display_dialogue(new_message):
 	print_message(new_message)
 func on_display_conversation(new_message,speaker, key = null):	
 	print_dialogue(new_message,speaker,key)
 
-
+#Message is for ONE box of text and no speaker. most things tbh
 func print_message(message):
 	text_label.text = ""
 	printed = message
@@ -54,7 +58,9 @@ func print_message(message):
 	Global.reading_in_progress = false
 	#flag the printing as done so objects can be interacted
 	
-	
+#For N>1 dialogue boxes. Holds a speaker and key as well
+#Key is to trigger some things *after* dialogue finishes
+#Like sounds or something
 func print_dialogue(message,speaker, key):
 	text_speed = .03
 	printed = ""
@@ -90,7 +96,8 @@ func _on_mouse_entered():
 
 func _on_mouse_exited():
 	Global.Selected_Object = null
-	
+
+#Clears the text boxes and hides them
 func clear_text():
 	printed = ""
 	current_speaker = ""

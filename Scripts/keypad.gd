@@ -2,23 +2,36 @@ extends Control
 const PASSWORD = "32 180 1888"
 var pointer = 0
 var can_print = true
-@onready var text = $VBoxContainer/MarginContainer/Label.text
+var text = "XX XXX XXXX"
+var selected_text 
+
 
 func _process(delta):
-	$VBoxContainer/MarginContainer/Label.text = text
 	if pointer == 2:
 		pointer = 3
 	if pointer == 6:
 		pointer = 7
 	if pointer == 11:
 		can_print = false
+	if $VBoxContainer/MarginContainer/Label.text == "XX XXX XXXX":
+		$VBoxContainer/MarginContainer/Label.text = "[color=red]X[/color]X XXX XXXX"
+	
 func key_press(digit):
 	if can_print:
 		text[pointer] = str(digit)
 		pointer += 1
-		print(text)
+		selected_text = format_text(text)
+		$VBoxContainer/MarginContainer/Label.text = selected_text
 		
-
+func format_text(text):
+	var new_text = text
+	var first_x_index = new_text.find("X")
+	if first_x_index > -1:
+		new_text[first_x_index] = ""
+		new_text = new_text.insert(first_x_index,"[color=red]X[/color]")
+	print(new_text)
+	return new_text
+	
 
 func _on_button_pressed():
 	key_press(1)
@@ -57,6 +70,7 @@ func _on_button_9_pressed():
 
 
 func _on_button_clear_pressed():
+	$VBoxContainer/MarginContainer/Label.text = "XX XXX XXXX"
 	text = "XX XXX XXXX"
 	pointer = 0
 	can_print = true
@@ -68,7 +82,16 @@ func _on_button_0_pressed():
 
 func _on_button_enter_pressed():
 	if text == PASSWORD:
+		$VBoxContainer/MarginContainer/Label.modulate = Color(0,1,0)
+		await get_tree().create_timer(1).timeout
+		$VBoxContainer/MarginContainer/Label.modulate = Color(1,1,1)
 		print("yay")
+		#signal something
+		hide()
+	else:
+		$VBoxContainer/MarginContainer/Label.modulate = Color(1,0,0)
+		await get_tree().create_timer(1).timeout
+		$VBoxContainer/MarginContainer/Label.modulate = Color(1,1,1)
 
 
 func _on_done_pressed():
