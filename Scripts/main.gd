@@ -7,6 +7,18 @@ func _ready():
 	SignalBus.connect("usability_trigger",on_usability_trigger)
 	SignalBus.connect("enter",on_enter_room)
 	SignalBus.connect("item_chosen",on_choose_item)
+	
+	# Detect which room is currently visible and store it
+	for child in get_children():
+		if child is Node2D and child.visible:
+			match child.name:
+				"Manor":
+					Global.current_room = "manor"
+				"Manor_Prehist":
+					Global.current_room = "prehistoric"
+				"Manor_Saloon":
+					Global.current_room = "saloon"
+			break
 	#$BlackBackground.show()
 	#SignalBus.emit_signal("display_conversation", Cutscenes.intro, Cutscenes.introspeaker, "introcutscene")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
