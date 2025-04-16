@@ -96,9 +96,10 @@ func on_choose_item(itemkey):
 
 func on_inspect_show(show_key):
 	if show_key == "safe":
+		Global.in_menu = true
 		await get_tree().create_timer(1.3).timeout 
 		$Manor_Saloon/Keypad.show()
-		get_tree().paused = true
+		
 #Function to trigger cutscenes/change item resoureces
 func check_story_flags():
 	if StoryFlags.has_listened_to_walkie == true:

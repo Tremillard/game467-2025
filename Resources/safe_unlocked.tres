@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inspectable" load_steps=2 format=3 uid="uid://cmxmpvjoi2b5a"]
+
+[ext_resource type="Script" uid="uid://bjnyes25dp115" path="res://Scripts/inspectable.gd" id="1_v5leq"]
+
+[resource]
+script = ExtResource("1_v5leq")
+text = "The safe is now unlocked."
+show_key = ""
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"

@@ -10,7 +10,6 @@ var selected_text
 # And yet I spent 1-2 hours on it
 # That's game dev :fire:
 
-
 func _process(delta):
 	#Hard-coded breaks for the 3 parts of the code
 	if pointer == 2:
@@ -40,7 +39,6 @@ func format_text(text):
 	if first_x_index > -1:
 		new_text[first_x_index] = ""
 		new_text = new_text.insert(first_x_index,"[color=red]X[/color]")
-	print(new_text)
 	return new_text
 	
 #signals for digit buttons
@@ -67,8 +65,10 @@ func _on_button_enter_pressed():
 		$VBoxContainer/MarginContainer/Label.modulate = Color(0,1,0)
 		await get_tree().create_timer(1).timeout
 		$VBoxContainer/MarginContainer/Label.modulate = Color(1,1,1)
+		$"../Safe".switch_resource(load("res://Resources/safe_unlocked.tres"))
 		print("yay")
 		#signal something
+		Global.in_menu = false
 		hide()
 	else:
 		$VBoxContainer/MarginContainer/Label.modulate = Color(1,0,0)
@@ -76,4 +76,5 @@ func _on_button_enter_pressed():
 		$VBoxContainer/MarginContainer/Label.modulate = Color(1,1,1)
 #close ui when you hit the done button
 func _on_done_pressed():
+	Global.in_menu = false
 	hide()

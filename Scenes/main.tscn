@@ -535,6 +535,7 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Manor_Prehist" type="Node2D" parent="." groups=["Rooms"]]
+visible = false
 
 [node name="Manor_Prehisthub" type="Sprite2D" parent="Manor_Prehist"]
 z_index = -1
@@ -684,7 +685,6 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Manor_Saloon" type="Node2D" parent="." groups=["Rooms"]]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Manor_Saloon"]
 z_index = -2
@@ -736,6 +736,7 @@ position = Vector2(746, 236)
 scale = Vector2(-0.561957, 1.03851)
 
 [node name="Keypad" parent="Manor_Saloon" instance=ExtResource("21_pdsj5")]
+visible = false
 offset_left = 426.0
 offset_top = 309.0
 offset_right = 426.0

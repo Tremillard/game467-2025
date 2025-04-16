@@ -9,7 +9,8 @@ class_name Interactable
 @export var enterable_res = Resource
 
 func _on_mouse_entered():
-	Global.Selected_Object = self
+	if !Global.in_menu:
+		Global.Selected_Object = self
 
 func _on_mouse_exited():
 	if Global.Selected_Object == self:

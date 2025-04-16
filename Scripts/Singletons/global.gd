@@ -14,3 +14,5 @@ var inventory = []
 @export var current_room : String
 # Whether player is using an item or not dictates if some UI elements appear
 @export var using_item : bool
+
+@export var in_menu : bool
