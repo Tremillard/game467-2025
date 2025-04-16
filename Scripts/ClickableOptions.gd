@@ -41,7 +41,7 @@ func check_ability():
 	$Enter.hide()
 	if selected.inspectable_res.show == true:
 		$Inspect.show()
-		inspectable_script = selected.inspectable_res.text
+		inspectable_script = selected.inspectable_res
 	if selected.takeable_res.show == true:
 		$Take.show()
 		takeable_sound = selected.takeable_res.take_sound
@@ -61,7 +61,8 @@ func check_ability():
 
 #When the UI buttons are pressed, show the info and perform auxillary action (take the object)
 func _on_inspect_pressed():
-	SignalBus.emit_signal("display_dialogue", inspectable_script)
+	SignalBus.emit_signal("display_dialogue", inspectable_script.text)
+	SignalBus.emit_signal("inspect_show", inspectable_script.show_key)
 	self.hide()
 func _on_take_pressed():
 	print(takeable_sound)

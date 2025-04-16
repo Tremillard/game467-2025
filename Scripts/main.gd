@@ -9,6 +9,8 @@ func _ready():
 	SignalBus.connect("item_chosen",on_choose_item)
 	
 	# Detect which room is currently visible and store it
+	SignalBus.connect("inspect_show",on_inspect_show)
+
 	for child in get_children():
 		if child is Node2D and child.visible:
 			match child.name:
@@ -92,6 +94,11 @@ func on_enter_room(destination):
 func on_choose_item(itemkey):
 	currently_used_item = itemkey
 
+func on_inspect_show(show_key):
+	if show_key == "safe":
+		await get_tree().create_timer(1.3).timeout 
+		$Manor_Saloon/Keypad.show()
+		get_tree().paused = true
 #Function to trigger cutscenes/change item resoureces
 func check_story_flags():
 	if StoryFlags.has_listened_to_walkie == true:
