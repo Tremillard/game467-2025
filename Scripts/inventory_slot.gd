@@ -26,8 +26,8 @@ func _on_check_button_pressed():
 func _on_use_button_pressed():
 	$UsagePanel.hide()
 
+#Check for use cases of items in situations
 func _on_item_button_pressed():
-	
 	if item != null and Global.reading_in_progress == false:
 		if item.key == "walkie" and Global.current_room == "manor":
 			SignalBus.emit_signal("display_conversation", Cutscenes.manorwalkie, Cutscenes.manorwalkiespeaker)

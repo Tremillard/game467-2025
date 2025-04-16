@@ -5,24 +5,35 @@ var can_print = true
 var text = "XX XXX XXXX"
 var selected_text 
 
+# This whole thing gonna be on screen for like
+# Maybe 1 minute
+# And yet I spent 1-2 hours on it
+# That's game dev :fire:
+
 
 func _process(delta):
+	#Hard-coded breaks for the 3 parts of the code
 	if pointer == 2:
 		pointer = 3
 	if pointer == 6:
 		pointer = 7
 	if pointer == 11:
 		can_print = false
+	#If the thing isn't red at the start make it red
 	if $VBoxContainer/MarginContainer/Label.text == "XX XXX XXXX":
 		$VBoxContainer/MarginContainer/Label.text = "[color=red]X[/color]X XXX XXXX"
-	
+
+#On a given key press (signal)
+#Make the pointer's X change into a digit
+#And then format the next digit into being red
 func key_press(digit):
 	if can_print:
 		text[pointer] = str(digit)
 		pointer += 1
 		selected_text = format_text(text)
 		$VBoxContainer/MarginContainer/Label.text = selected_text
-		
+
+#Make the next X red to indicate it's next
 func format_text(text):
 	var new_text = text
 	var first_x_index = new_text.find("X")
@@ -32,54 +43,25 @@ func format_text(text):
 	print(new_text)
 	return new_text
 	
-
-func _on_button_pressed():
-	key_press(1)
-
-
-func _on_button_2_pressed():
-	key_press(2)
-
-
-func _on_button_3_pressed():
-	key_press(3)
-
-
-func _on_button_4_pressed():
-	key_press(4)
-
-
-func _on_button_5_pressed():
-	key_press(5)
-
-
-func _on_button_6_pressed():
-	key_press(6)
-
-
-func _on_button_7_pressed():
-	key_press(7)
-
-
-func _on_button_8_pressed():
-	key_press(8)
-
-
-func _on_button_9_pressed():
-	key_press(9)
-
-
+#signals for digit buttons
+func _on_button_pressed(): key_press(1)
+func _on_button_2_pressed(): key_press(2)
+func _on_button_3_pressed(): key_press(3)
+func _on_button_4_pressed(): key_press(4)
+func _on_button_5_pressed(): key_press(5)
+func _on_button_6_pressed(): key_press(6)
+func _on_button_7_pressed(): key_press(7)
+func _on_button_8_pressed(): key_press(8)
+func _on_button_9_pressed(): key_press(9)
+#clear button signal resets everything
 func _on_button_clear_pressed():
 	$VBoxContainer/MarginContainer/Label.text = "XX XXX XXXX"
 	text = "XX XXX XXXX"
 	pointer = 0
 	can_print = true
-
-
-func _on_button_0_pressed():
-	key_press(0)
-
-
+#number 0 is down here sorry guys
+func _on_button_0_pressed(): key_press(0)
+#enter button checks if the code is right
 func _on_button_enter_pressed():
 	if text == PASSWORD:
 		$VBoxContainer/MarginContainer/Label.modulate = Color(0,1,0)
@@ -92,7 +74,6 @@ func _on_button_enter_pressed():
 		$VBoxContainer/MarginContainer/Label.modulate = Color(1,0,0)
 		await get_tree().create_timer(1).timeout
 		$VBoxContainer/MarginContainer/Label.modulate = Color(1,1,1)
-
-
+#close ui when you hit the done button
 func _on_done_pressed():
 	hide()

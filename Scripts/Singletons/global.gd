@@ -12,5 +12,5 @@ var inventory = []
 @export var inventory_keys : Array
 # Current Room key
 @export var current_room : String
-
+# Whether player is using an item or not dictates if some UI elements appear
 @export var using_item : bool
