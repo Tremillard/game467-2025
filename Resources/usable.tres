@@ -6,5 +6,5 @@
 script = ExtResource("1_b0xss")
 text = "Debug"
 show = false
-key = "Debug"
+key = ""
 metadata/_custom_type_script = "uid://w0q7anfur22h"

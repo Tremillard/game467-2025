@@ -4,7 +4,7 @@
 
 [resource]
 script = ExtResource("1_37l52")
-text = "I haven't been customized!"
+text = "not configed"
 show_key = ""
 show = false
 metadata/_custom_type_script = "uid://bjnyes25dp115"

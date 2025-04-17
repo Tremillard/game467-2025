@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Talkable" load_steps=2 format=3 uid="uid://dy1735urbg5d5"]
+
+[ext_resource type="Script" uid="uid://dm7a2bwo0hbw0" path="res://Scripts/talkable.gd" id="1_0y54i"]
+
+[resource]
+script = ExtResource("1_0y54i")
+text = PackedStringArray("(Maybe there could be something hidden in this safe, feels like the only place I haven\'t checked.)", "(Though I will say that the safe and its design look like something I would see from my time?)", "If you are trying to open that \"hic\" safe you won\'t get any luck. ", "Burley\'s the owner of this here place and has locked that thing shut. I tried opening that safe for awhile still got \"hic\" nothing! So I wouldn\'t waste your time.")
+show = true
+speaker = PackedStringArray("Logan", "Logan", "Mark", "Mark")
+metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"

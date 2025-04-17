@@ -90,6 +90,35 @@ extends Node
 "Thomas Lankey"
 ]
 
+@export var markhaterarc = [
+"*Chug* *Chug* *Chug*",
+"Bleeehhh!!",
+"He tosses the bottle, making a loud crack.",
+"This isn't anything that I *hic* asked for!",
+"This is no different from that *hic* damn bartender serves to me!",
+"I want something better!! Not this wack-ass bull-*hic*"
+]
+
+@export var markhaterarcspeaker = [
+"Mark",
+"Mark",
+"",
+"Mark",
+"Mark",
+"Mark",
+]
+
+@export var markgivekey = [
+"Good work! You made it through our playtest!",
+"Fill out our associated forms and whatnot. Thanks for playing!"
+
+]
+@export var markgivekeyspeaker = [
+"Team Kronos",
+"Team Kronos"
+]
+
+@export var unlock_safe = "The safe is unlocked. Let's see what's in it!"
 @export var nothing = "Nothing happens."
 @export var give_dog_bone = "The dog yips happily! Perhaps I can take the bone now..."
 @export var unlock_saloon_door = "The door unlocks. Nice."

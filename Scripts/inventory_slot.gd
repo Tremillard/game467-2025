@@ -29,7 +29,7 @@ func _on_use_button_pressed():
 #Check for use cases of items in situations
 func _on_item_button_pressed():
 	if item != null and Global.reading_in_progress == false:
-		if item.key == "walkie" and Global.current_room == "manor":
+		if item.key == "walkie" and Global.current_room == "manor" and !Global.using_item:
 			SignalBus.emit_signal("display_conversation", Cutscenes.manorwalkie, Cutscenes.manorwalkiespeaker)
 			StoryFlags.has_listened_to_walkie = true
 			return

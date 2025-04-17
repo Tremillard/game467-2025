@@ -63,6 +63,9 @@ func check_ability():
 func _on_inspect_pressed():
 	SignalBus.emit_signal("display_dialogue", inspectable_script.text)
 	SignalBus.emit_signal("inspect_show", inspectable_script.show_key)
+	if inspectable_script.show_key == "safe":
+		StoryFlags.has_checked_safe = true
+		print("you checked the safe")
 	self.hide()
 func _on_take_pressed():
 	print(takeable_sound)

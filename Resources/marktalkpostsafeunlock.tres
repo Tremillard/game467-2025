@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Talkable" load_steps=2 format=3 uid="uid://curm5uxwawxq7"]
+
+[ext_resource type="Script" uid="uid://dm7a2bwo0hbw0" path="res://Scripts/talkable.gd" id="1_057gk"]
+
+[resource]
+script = ExtResource("1_057gk")
+text = PackedStringArray("Dummy text post safe unlock lalalala.")
+show = true
+speaker = PackedStringArray("Mark")
+metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"

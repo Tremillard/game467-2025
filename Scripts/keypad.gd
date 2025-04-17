@@ -1,5 +1,5 @@
 extends Control
-const PASSWORD = "32 180 1888"
+const PASSWORD = "32 180 1835"
 var pointer = 0
 var can_print = true
 var text = "XX XXX XXXX"
@@ -66,6 +66,10 @@ func _on_button_enter_pressed():
 		await get_tree().create_timer(1).timeout
 		$VBoxContainer/MarginContainer/Label.modulate = Color(1,1,1)
 		$"../Safe".switch_resource(load("res://Resources/safe_unlocked.tres"))
+		$"../Safe".switch_resource(load("res://Resources/safe_unlockedtake.tres"))
+		$"../Mark".switch_resource(load("res://Resources/markusefancywine.tres"))
+		$"../Mark".switch_resource(load("res://Resources/marktalkpostsafeunlock.tres"))
+		SignalBus.emit_signal("display_dialogue", Cutscenes.unlock_safe)
 		print("yay")
 		#signal something
 		Global.in_menu = false
