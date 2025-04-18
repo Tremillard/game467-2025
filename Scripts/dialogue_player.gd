@@ -89,7 +89,8 @@ func print_dialogue(message,speaker, key):
 		print("intro over")
 		$"../BlackBackground".hide()
 		$"../Manor".show()
-		AudioPlayer.get_node("DefaultMusic").play()
+		#AudioPlayer.get_node("DefaultMusic").play()
+		AudioPlayer.fade_in_music(AudioPlayer.get_node("DefaultMusic"))
 	
 func _on_mouse_entered():
 	Global.Selected_Object = self

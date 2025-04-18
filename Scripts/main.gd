@@ -83,16 +83,25 @@ func on_enter_room(destination):
 		$Manor_Saloon.hide()
 		$Manor_Prehist.show()
 		Global.current_room = "prehistoric"
+		AudioPlayer.fade_out_music(AudioPlayer.get_node("DefaultMusic"))
+		AudioPlayer.fade_in_music(AudioPlayer.get_node("CaveMusic"))
 	if destination == "manor":
 		$Manor.show()
 		$Manor_Saloon.hide()
 		$Manor_Prehist.hide()
+		if Global.current_room == "prehistoric":
+			AudioPlayer.fade_out_music(AudioPlayer.get_node("CaveMusic"))
+		if Global.current_room == "saloon":
+			AudioPlayer.fade_out_music(AudioPlayer.get_node("SaloonMusic"))
 		Global.current_room = "manor"
+		AudioPlayer.fade_in_music(AudioPlayer.get_node("DefaultMusic"))
 	if destination == "saloon":
 		$Manor.hide()
 		$Manor_Prehist.hide()
 		$Manor_Saloon.show()
 		Global.current_room = "saloon"
+		AudioPlayer.fade_out_music(AudioPlayer.get_node("DefaultMusic"))
+		AudioPlayer.fade_in_music(AudioPlayer.get_node("SaloonMusic"))
 
 
 func on_choose_item(itemkey):
