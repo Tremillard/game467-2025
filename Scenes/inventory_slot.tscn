@@ -21,7 +21,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0, 0.541176, 0.282353, 1)
+color = Color(0.343861, 0.218931, 0.13914, 1)
 
 [node name="InnerBorder" type="ColorRect" parent="."]
 custom_minimum_size = Vector2(116, 116)
@@ -37,7 +37,7 @@ offset_right = 58.0
 offset_bottom = 58.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.345098, 0.364706, 0.384314, 1)
+color = Color(0.445691, 0.270868, 0.180345, 1)
 
 [node name="Itemicon" type="Sprite2D" parent="InnerBorder"]
 position = Vector2(70, 70)
