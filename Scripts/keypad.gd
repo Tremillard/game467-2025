@@ -75,9 +75,19 @@ func _on_button_enter_pressed():
 		Global.in_menu = false
 		hide()
 	else:
-		$VBoxContainer/MarginContainer/Label.modulate = Color(1,0,0)
+		print($VBoxContainer/MarginContainer/Label.text.find("1835"))
+		if $VBoxContainer/MarginContainer/Label.text.find("32")==0:
+			$VBoxContainer/MarginContainer/Label.text = $VBoxContainer/MarginContainer/Label.text.replace("32 ", "[color=green]32 [color=red]")
+		if $VBoxContainer/MarginContainer/Label.text.find("180")>4:
+			$VBoxContainer/MarginContainer/Label.text = $VBoxContainer/MarginContainer/Label.text.replace("180 ", "[color=green]180 [color=red]")
+		if $VBoxContainer/MarginContainer/Label.text.find("1835")>7:
+			$VBoxContainer/MarginContainer/Label.text = $VBoxContainer/MarginContainer/Label.text.replace("1835", "[color=green]1835[/color]")
 		await get_tree().create_timer(1).timeout
-		$VBoxContainer/MarginContainer/Label.modulate = Color(1,1,1)
+		$VBoxContainer/MarginContainer/Label.text
+		var regex = RegEx.new()
+		regex.compile("\\[.*?\\]")
+		var text_without_tags = regex.sub($VBoxContainer/MarginContainer/Label.text, "", true)
+		$VBoxContainer/MarginContainer/Label.text = text_without_tags
 #close ui when you hit the done button
 func _on_done_pressed():
 	Global.in_menu = false
