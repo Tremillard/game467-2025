@@ -79,6 +79,8 @@ func cause_change(key):
 #Function for changing between all of the rooms in the game
 #Hardcoded because it's a small game haha
 func on_enter_room(destination):
+	$BlackBackground.fade_transition()
+	await get_tree().create_timer(1)
 	if destination == "prehistoric":
 		$Manor.hide()
 		$Manor_Saloon.hide()
