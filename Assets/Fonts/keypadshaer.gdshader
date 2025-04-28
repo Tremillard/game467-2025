@@ -9,8 +9,8 @@ void fragment() {
 	vec4 input_color = texture(TEXTURE, UV);
 	if(input_color == vec4(0,1,0,1) && is_on == true){
 		COLOR = vec4(1,0,0,1);
-	} 
-		
+	}
+
 }
 
 //void light() {

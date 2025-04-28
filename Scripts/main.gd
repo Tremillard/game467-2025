@@ -21,8 +21,8 @@ func _ready():
 				"Manor_Saloon":
 					Global.current_room = "saloon"
 			break
-	$BlackBackground.show()
-	SignalBus.emit_signal("display_conversation", Cutscenes.intro, Cutscenes.introspeaker, "introcutscene")
+	#$BlackBackground.show()
+	#SignalBus.emit_signal("display_conversation", Cutscenes.intro, Cutscenes.introspeaker, "introcutscene")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#This is to trigger cutscenes/change item resoureces
@@ -69,6 +69,7 @@ func cause_change(key):
 		$Manor_Prehist/Dog.hide()
 		$Manor_Prehist/DogNoUse.show()
 	if key == "markbad":
+		$Manor/Alcohol.switch_resource(load("res://Resources/alcoholbad.tres"))
 		SignalBus.emit_signal("display_conversation", Cutscenes.markhaterarc,Cutscenes.markhaterarcspeaker)
 	if key == "markgood":
 		SignalBus.emit_signal("display_conversation", Cutscenes.markgivekey, Cutscenes.markgivekeyspeaker)

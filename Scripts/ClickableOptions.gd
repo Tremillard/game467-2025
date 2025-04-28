@@ -51,7 +51,7 @@ func check_ability():
 		$Talk.show()
 		talkable_script = selected.talkable_res.text
 		talkable_speaker = selected.talkable_res.speaker
-	if selected.usable_res.show == true:
+	if selected.usable_res.show == true and Global.inventory_keys.is_empty() == false:
 		$Use.show()
 		usable_script = selected.usable_res
 	if selected.enterable_res.show == true:

@@ -71,7 +71,13 @@ func print_dialogue(message,speaker, key):
 	var counter = 0
 	for line in message:
 		current_speaker = speaker[counter]
-		text_speed = .1
+		if speaker[counter].length() <1:
+			$SpeakerBackground.hide()
+		else:
+			$SpeakerBackground.show()
+			print(speaker[counter])
+			
+		text_speed = .03
 		printed = line
 		text_label.visible_ratio = 0
 		for i in len(line):

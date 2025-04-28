@@ -1,4 +1,4 @@
-[gd_scene load_steps=86 format=3 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=90 format=3 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
@@ -62,6 +62,34 @@ metadata/_custom_type_script = "uid://w0q7anfur22h"
 script = ExtResource("11_jkdf5")
 show = false
 destination = "saloon"
+enter_sound = ExtResource("18_fevyy")
+metadata/_custom_type_script = "uid://cluy2etoai2p2"
+
+[sub_resource type="Resource" id="Resource_nay3j"]
+script = ExtResource("4_6iyac")
+text = "It's a door. Do I hear gambling?"
+show_key = ""
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_ovafv"]
+script = ExtResource("11_jkdf5")
+show = false
+destination = "1920s"
+enter_sound = ExtResource("18_fevyy")
+metadata/_custom_type_script = "uid://cluy2etoai2p2"
+
+[sub_resource type="Resource" id="Resource_owhal"]
+script = ExtResource("4_6iyac")
+text = "These doors seem quite important than the others."
+show_key = ""
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_uv6w5"]
+script = ExtResource("11_jkdf5")
+show = false
+destination = "powercore"
 enter_sound = ExtResource("18_fevyy")
 metadata/_custom_type_script = "uid://cluy2etoai2p2"
 
@@ -563,6 +591,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
 wait_time = 0.1
 
 [node name="Manor" type="Node2D" parent="." groups=["Rooms"]]
+visible = false
 
 [node name="Manorhub" type="Sprite2D" parent="Manor"]
 z_index = -1
@@ -583,6 +612,20 @@ scale = Vector2(0.96, 1.6)
 inspectable_res = SubResource("Resource_v2nl5")
 usable_res = SubResource("Resource_dmskm")
 enterable_res = SubResource("Resource_xdkp6")
+
+[node name="Right Door" parent="Manor" instance=ExtResource("1_8oicw")]
+position = Vector2(802, 138)
+scale = Vector2(0.96, 2.24239)
+inspectable_res = SubResource("Resource_nay3j")
+usable_res = SubResource("Resource_dmskm")
+enterable_res = SubResource("Resource_ovafv")
+
+[node name="Main Doors" parent="Manor" instance=ExtResource("1_8oicw")]
+position = Vector2(433, 323)
+scale = Vector2(2.66515, 1.77381)
+inspectable_res = SubResource("Resource_owhal")
+usable_res = SubResource("Resource_dmskm")
+enterable_res = SubResource("Resource_uv6w5")
 
 [node name="Rug" parent="Manor" instance=ExtResource("1_8oicw")]
 position = Vector2(429, 558)
@@ -733,7 +776,7 @@ enterable_res = SubResource("Resource_r33sp")
 
 [node name="Cave Key Default" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
 position = Vector2(374, 439)
-scale = Vector2(0.460835, 0.506918)
+scale = Vector2(0.01, 0.01)
 inspectable_res = SubResource("Resource_aqgau")
 takeable_res = SubResource("Resource_jwpg7")
 talkable_res = SubResource("Resource_h1bgf")
@@ -741,8 +784,8 @@ usable_res = SubResource("Resource_k2e45")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Sprite2D" type="Sprite2D" parent="Manor_Prehist/Cave Key Default"]
-position = Vector2(-1.07288e-05, -1.9727)
-scale = Vector2(1.53422, 1.39475)
+position = Vector2(-1.07288e-05, 5.48363e-06)
+scale = Vector2(70, 63.657)
 texture = ExtResource("18_b3802")
 
 [node name="Cave Key Takeable" parent="Manor_Prehist" instance=ExtResource("1_8oicw")]
@@ -780,7 +823,6 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Manor_Saloon" type="Node2D" parent="." groups=["Rooms"]]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Manor_Saloon"]
 z_index = -2
