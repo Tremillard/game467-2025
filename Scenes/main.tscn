@@ -375,7 +375,7 @@ metadata/_custom_type_script = "uid://cluy2etoai2p2"
 
 [sub_resource type="Resource" id="Resource_gsvbx"]
 script = ExtResource("4_6iyac")
-text = "That looks like a Winchester Rifle. I know this baby can hold .32 caliber bullets!"
+text = "That looks like a Winchester Rifle! If memory serves, that baby takes .32 caliber bullets. There's no way its loaded... right?"
 show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
@@ -398,7 +398,7 @@ metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
 [sub_resource type="Resource" id="Resource_6ml46"]
 script = ExtResource("4_6iyac")
-text = "On closer inspection, it's a trophy- not a bottle of alcohol. It says \"Burleys Saloon 1835\"- Likely when this place was established."
+text = "'Dust Devil Draft - Burly's Original (est. 1835).' This must have been made in-house, then. I wonder how good it tastes."
 show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
@@ -433,14 +433,14 @@ metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_y86h7"]
 script = ExtResource("4_6iyac")
-text = "There seems to be a lot more wear on the 60 section of this darts board than all of the others."
+text = "\"This board has seen better days, I'll give it that. Especially the 60 point region. More holes there than swiss cheese...\""
 show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_qax2n"]
 script = ExtResource("4_6iyac")
-text = "Let's get a good look at this sheet."
+text = "\"Seems to be a rules pamphlet for darts. Let's take a look...\""
 show_key = "dartsinstruction"
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
@@ -454,7 +454,7 @@ metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_ynmfv"]
 script = ExtResource("4_6iyac")
-text = "It's a wanted poster, but I don't recognize the figure."
+text = "A Wanted Poster, huh? I can not seem to make out the figure, though."
 show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
