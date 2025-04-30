@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Enterable" load_steps=2 format=3 uid="uid://cg1qub8mst2gc"]
+
+[ext_resource type="Script" uid="uid://cluy2etoai2p2" path="res://Scripts/enterable.gd" id="1_ovokx"]
+
+[resource]
+script = ExtResource("1_ovokx")
+show = true
+destination = "casino"
+metadata/_custom_type_script = "uid://cluy2etoai2p2"

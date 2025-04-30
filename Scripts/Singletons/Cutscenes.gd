@@ -109,16 +109,37 @@ extends Node
 ]
 
 @export var markgivekey = [
-"Good work! You made it through our playtest!",
-"Fill out our associated forms and whatnot. Thanks for playing!"
+"‘Chug’ ‘Chug’ ‘Chug’",
+"Yeehaw!! Now that’s some good “hic” whiskey! Just one sip of that and it made my day!",
+"Then how about we make a trade, I’ll give you the whole bottle if you hand me that key?",
+"What do you say?",
+"I like “hic” the way you think! You got yourself a deal!"
 
 ]
 @export var markgivekeyspeaker = [
-"Team Kronos",
-"Team Kronos"
+"Mark",
+"Mark",
+"Logan",
+"Logan",
+"Mark"
 ]
 
-@export var unlock_safe = "The safe is unlocked. Let's see what's in it!"
+@export var unlock_safe = [
+"The safe is unlocked. Let's see what's in it!",
+"There's a nice bottle of wine...",
+"And a record. Huh.",
+"I'll take them both."
+]
+@export var unlock_safe_speaker = [
+"",
+"",
+"",
+""
+]
+@export var unlock_safe_key = "unlocksafekey"
+
+@export var markgivekeykey = "markgivekeykey"
 @export var nothing = "Nothing happens."
 @export var give_dog_bone = "The dog yips happily! Perhaps I can take the bone now..."
 @export var unlock_saloon_door = "The door unlocks. Nice."
+@export var unlock_casino_door = "The key worked. Let's go in."

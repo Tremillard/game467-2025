@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Inspectable" load_steps=2 format=3 uid="uid://1mjdsq13obb1"]
+
+[ext_resource type="Script" uid="uid://bjnyes25dp115" path="res://Scripts/inspectable.gd" id="1_xh6yl"]
+
+[resource]
+script = ExtResource("1_xh6yl")
+text = "Let's go gambling!"
+show_key = ""
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"

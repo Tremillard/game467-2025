@@ -1,4 +1,4 @@
-[gd_scene load_steps=91 format=3 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=99 format=3 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
@@ -23,10 +23,14 @@
 [ext_resource type="AudioStream" uid="uid://dk72unnfr578e" path="res://Assets/Audio/Door_Opening.wav" id="18_fevyy"]
 [ext_resource type="AudioStream" uid="uid://dw5n862ae0fra" path="res://Assets/Audio/SFX/Bone.wav" id="19_cbgmd"]
 [ext_resource type="Texture2D" uid="uid://b762vo30kr37q" path="res://Assets/Images/manorsaloonfinWS.png" id="20_hibaj"]
-[ext_resource type="Texture2D" uid="uid://cu8cii5krs3h" path="res://Assets/Images/placeholderinvitem.png" id="21_ee4r6"]
 [ext_resource type="PackedScene" uid="uid://cmn3ae3eiy5vl" path="res://Scenes/keypad.tscn" id="21_pdsj5"]
 [ext_resource type="AudioStream" uid="uid://blduoa0sjaq40" path="res://Assets/Audio/SFX/Key.wav" id="22_1w6v2"]
+[ext_resource type="Texture2D" uid="uid://chygavfx4c0pg" path="res://Assets/Images/widebottle.png" id="25_hpc6h"]
+[ext_resource type="PackedScene" uid="uid://viv2isuy4elf" path="res://Scenes/darts_instructions.tscn" id="26_6vcvc"]
+[ext_resource type="Texture2D" uid="uid://q51q0t3vci7g" path="res://Assets/Images/keynochain.png" id="26_ueoa1"]
 [ext_resource type="Script" uid="uid://djb1c6fnq0or1" path="res://Scripts/black_background.gd" id="27_1w6v2"]
+[ext_resource type="Texture2D" uid="uid://bsto5q1yk2mw3" path="res://Assets/Images/manorcasino.png" id="29_7k868"]
+[ext_resource type="Texture2D" uid="uid://dqynscd7qbjfs" path="res://Assets/Images/dealerissolated.png" id="30_kltya"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptm8"]
 bg_color = Color(0.105882, 0.105882, 0.105882, 0.615686)
@@ -73,10 +77,17 @@ show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
+[sub_resource type="Resource" id="Resource_e5peh"]
+script = ExtResource("9_6iyac")
+text = "Works like a charm."
+show = true
+key = "casino_key"
+metadata/_custom_type_script = "uid://w0q7anfur22h"
+
 [sub_resource type="Resource" id="Resource_ovafv"]
 script = ExtResource("11_jkdf5")
-show = false
-destination = "1920s"
+show = true
+destination = "casino"
 enter_sound = ExtResource("18_fevyy")
 metadata/_custom_type_script = "uid://cluy2etoai2p2"
 
@@ -364,7 +375,7 @@ metadata/_custom_type_script = "uid://cluy2etoai2p2"
 
 [sub_resource type="Resource" id="Resource_gsvbx"]
 script = ExtResource("4_6iyac")
-text = "That looks like a Winchester Rifle. I know this baby can fire out 32 cartridges!"
+text = "That looks like a Winchester Rifle. I know this baby can hold .32 caliber bullets!"
 show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
@@ -381,7 +392,7 @@ script = ExtResource("4_fb3mb")
 show = true
 pick_up_text = "You take the stubby looking bottle of alcohol."
 inspect_text = "It seems to be standard bar whiskey."
-texture = ExtResource("21_ee4r6")
+texture = ExtResource("25_hpc6h")
 key = "markbad"
 metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
@@ -422,15 +433,15 @@ metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_y86h7"]
 script = ExtResource("4_6iyac")
-text = "There seems to be a lot more wear on the 20*3 section than all of the others. To score a perfect game of 180, one would have to hit that section three times in a row."
+text = "There seems to be a lot more wear on the 60 section of this darts board than all of the others."
 show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
 [sub_resource type="Resource" id="Resource_qax2n"]
 script = ExtResource("4_6iyac")
-text = "List of top scorers: 1st Burley, 2nd Mark, 3rd Tom"
-show_key = ""
+text = "Let's get a good look at this sheet."
+show_key = "dartsinstruction"
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -448,6 +459,16 @@ show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
+[sub_resource type="Resource" id="Resource_r7bbj"]
+script = ExtResource("4_fb3mb")
+show = true
+pick_up_text = "You take the key Mark left on the counter."
+inspect_text = "This key probably goes to the room on the right."
+texture = ExtResource("26_ueoa1")
+key = "casino_key"
+take_sound = ExtResource("22_1w6v2")
+metadata/_custom_type_script = "uid://b2m6w2fqm504y"
+
 [sub_resource type="Gradient" id="Gradient_pdsj5"]
 colors = PackedColorArray(0, 0, 0, 0.784314, 0.577008, 0.577008, 0.577008, 0.784314)
 
@@ -460,6 +481,20 @@ height = 864
 script = ExtResource("4_6iyac")
 text = "Let's try to crack this safe. "
 show_key = "safe"
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_f6rfp"]
+script = ExtResource("7_fdnlq")
+text = PackedStringArray("Excuse me sir, my name is Logan Ace and I heard you may have a key for a room? ", "Ehhh, key?", "I\'m with Thomas Lan-", "Now you listen here you think you have a \"hic\" a right to take my stuff! I\'m at my darn limit you piece of \"hic!\"", "You Botta get it from Mark now! ", "(Pulls out key and tries to blast Logan.) ", "Ehhh, what\'s up  \'hic\' with my revolver! I\'m know I reloaded it!", "(Looks like this guy might be drunk.)", "I think that can\'t hold bullets. I think I\'m going to need that though.", "Maybe if you get me a better \"hic\"  drink I might give it up. \"hic\" Everything here is so gaaaaaarbage!!")
+show = true
+speaker = PackedStringArray("Logan", "???", "Logan", "???", "Mark", "", "Mark", "Logan", "Logan", "Mark")
+metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"
+
+[sub_resource type="Resource" id="Resource_sasc4"]
+script = ExtResource("4_6iyac")
+text = "It's a fancy jukebox covered in playing card suits."
+show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
@@ -592,6 +627,7 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
 wait_time = 0.1
 
 [node name="Manor" type="Node2D" parent="." groups=["Rooms"]]
+visible = false
 
 [node name="Manorhub" type="Sprite2D" parent="Manor"]
 z_index = -1
@@ -617,7 +653,7 @@ enterable_res = SubResource("Resource_xdkp6")
 position = Vector2(802, 138)
 scale = Vector2(0.96, 2.24239)
 inspectable_res = SubResource("Resource_nay3j")
-usable_res = SubResource("Resource_dmskm")
+usable_res = SubResource("Resource_e5peh")
 enterable_res = SubResource("Resource_ovafv")
 
 [node name="Main Doors" parent="Manor" instance=ExtResource("1_8oicw")]
@@ -823,7 +859,6 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Manor_Saloon" type="Node2D" parent="." groups=["Rooms"]]
-visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Manor_Saloon"]
 z_index = -2
@@ -838,7 +873,7 @@ inspectable_res = SubResource("Resource_cblf0")
 enterable_res = SubResource("Resource_54nrm")
 
 [node name="Winchester" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
-position = Vector2(593, 195)
+position = Vector2(594, 195)
 scale = Vector2(2.4, 0.480001)
 inspectable_res = SubResource("Resource_gsvbx")
 
@@ -849,7 +884,7 @@ inspectable_res = SubResource("Resource_1semv")
 takeable_res = SubResource("Resource_2daye")
 
 [node name="Tall Bottle" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
-position = Vector2(340, 290)
+position = Vector2(341, 290)
 scale = Vector2(0.2826, 0.783454)
 inspectable_res = SubResource("Resource_6ml46")
 
@@ -877,6 +912,11 @@ scale = Vector2(0.956896, 1.09418)
 skew = 0.225147
 inspectable_res = SubResource("Resource_qax2n")
 
+[node name="DartsInstructions" parent="Manor_Saloon" instance=ExtResource("26_6vcvc")]
+visible = false
+position = Vector2(428, 260)
+scale = Vector2(0.440074, 0.440074)
+
 [node name="Saloon Sign" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
 position = Vector2(532, 75)
 scale = Vector2(5.43999, 1.4)
@@ -886,6 +926,22 @@ inspectable_res = SubResource("Resource_lx3vj")
 position = Vector2(746, 236)
 scale = Vector2(-0.561957, 1.03851)
 inspectable_res = SubResource("Resource_ynmfv")
+
+[node name="Saloon Key" parent="Manor_Saloon" instance=ExtResource("1_8oicw")]
+visible = false
+position = Vector2(519, 363)
+rotation = 0.218676
+scale = Vector2(0.464637, 0.56221)
+inspectable_res = SubResource("Resource_8cuat")
+takeable_res = SubResource("Resource_r7bbj")
+talkable_res = SubResource("Resource_h1bgf")
+usable_res = SubResource("Resource_k2e45")
+enterable_res = SubResource("Resource_fevyy")
+
+[node name="Sprite2D" type="Sprite2D" parent="Manor_Saloon/Saloon Key"]
+position = Vector2(-1.07288e-05, -5.34058e-05)
+scale = Vector2(1.53422, 1.39475)
+texture = ExtResource("26_ueoa1")
 
 [node name="Keypad" parent="Manor_Saloon" instance=ExtResource("21_pdsj5")]
 visible = false
@@ -906,6 +962,33 @@ texture = SubResource("GradientTexture2D_ee4r6")
 position = Vector2(350, 217)
 scale = Vector2(0.825951, -0.742702)
 inspectable_res = SubResource("Resource_55jeb")
+
+[node name="Manor_Casino" type="Node2D" parent="."]
+visible = false
+position = Vector2(400, 300)
+scale = Vector2(0.5, 0.5)
+
+[node name="Sprite2D" type="Sprite2D" parent="Manor_Casino"]
+z_index = -1
+position = Vector2(64, 48)
+scale = Vector2(1.08, 1.08)
+texture = ExtResource("29_7k868")
+
+[node name="Dealer" parent="Manor_Casino" instance=ExtResource("1_8oicw")]
+position = Vector2(58, -330)
+scale = Vector2(2, 2)
+inspectable_res = SubResource("Resource_bv80c")
+talkable_res = SubResource("Resource_f6rfp")
+usable_res = SubResource("Resource_2060n")
+
+[node name="Sprite2D" type="Sprite2D" parent="Manor_Casino/Dealer"]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("30_kltya")
+
+[node name="Jukebox" parent="Manor_Casino" instance=ExtResource("1_8oicw")]
+position = Vector2(792, -66)
+scale = Vector2(2.87999, 5.63816)
+inspectable_res = SubResource("Resource_sasc4")
 
 [node name="TextBox" type="CanvasLayer" parent="."]
 

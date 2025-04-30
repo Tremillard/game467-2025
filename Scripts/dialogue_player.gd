@@ -97,7 +97,15 @@ func print_dialogue(message,speaker, key):
 		$"../Manor".show()
 		#AudioPlayer.get_node("DefaultMusic").play()
 		AudioPlayer.fade_in_music(AudioPlayer.get_node("DefaultMusic"))
-	
+	if key == "markgivekeykey":
+		$"../Manor_Saloon/Saloon Key".show()
+	if key == "unlocksafekey":
+		print("unlock the safe yay")
+		print("heres the wine")
+		load("res://Resources/safe_unlockedtake.tres").take_item()
+		await get_tree().create_timer(.2).timeout
+		print("here's the record")
+		load("res://Resources/record.tres").take_item()
 func _on_mouse_entered():
 	Global.Selected_Object = self
 

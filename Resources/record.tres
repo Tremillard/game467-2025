@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Takeable" load_steps=3 format=3 uid="uid://btam84ut5vksc"]
+
+[ext_resource type="Script" uid="uid://b2m6w2fqm504y" path="res://Scripts/takeable.gd" id="1_iiyal"]
+[ext_resource type="Texture2D" uid="uid://damdvk14mv6tj" path="res://Assets/Images/recordinvsize.png" id="2_ws0qh"]
+
+[resource]
+script = ExtResource("1_iiyal")
+show = true
+pick_up_text = "You take the record... And you shouldn't be reading this!"
+inspect_text = "I found this record in the safe from a saloon. Did they even exist at the time...?"
+texture = ExtResource("2_ws0qh")
+key = "record"
+metadata/_custom_type_script = "uid://b2m6w2fqm504y"

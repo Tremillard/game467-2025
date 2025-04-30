@@ -61,6 +61,11 @@ func cause_change(key):
 		$"Manor/Middle Door".switch_resource(load("res://Resources/saloon_unlocked_inspectable.tres"))
 		$"Manor/Middle Door".switch_resource(load("res://Resources/usable.tres"))
 		SignalBus.emit_signal("display_dialogue", Cutscenes.unlock_saloon_door)
+	if key == "casino_key":
+		$"Manor/Right Door".switch_resource(load("res://Resources/casino_unlocked_enterable.tres"))
+		$"Manor/Right Door".switch_resource(load("res://Resources/casino_unlocked_inspectable.tres"))
+		$"Manor/Right Door".switch_resource(load("res://Resources/usable.tres"))
+		SignalBus.emit_signal("display_dialogue", Cutscenes.unlock_casino_door)	
 	if key == "bone":
 		SignalBus.emit_signal("display_dialogue", Cutscenes.give_dog_bone)
 		$"Manor_Prehist/Cave Key Default".hide()
@@ -77,19 +82,20 @@ func cause_change(key):
 		$Manor/Alcohol.switch_resource(load("res://Resources/alcoholbad.tres"))
 		SignalBus.emit_signal("display_conversation", Cutscenes.markhaterarc,Cutscenes.markhaterarcspeaker)
 	if key == "markgood":
-		SignalBus.emit_signal("display_conversation", Cutscenes.markgivekey, Cutscenes.markgivekeyspeaker)
+		SignalBus.emit_signal("display_conversation", Cutscenes.markgivekey, Cutscenes.markgivekeyspeaker, Cutscenes.markgivekeykey)
 	if key == "nothing":
 		SignalBus.emit_signal("display_dialogue", Cutscenes.nothing)
 
 #Function for changing between all of the rooms in the game
 #Hardcoded because it's a small game haha
 func on_enter_room(destination):
-	$BlackBackground.fade_transition()
-	await get_tree().create_timer(1)
+	#$BlackBackground.fade_transition()
+	#await get_tree().create_timer(1)
 	if destination == "prehistoric":
 		$Manor.hide()
 		$Manor_Saloon.hide()
 		$Manor_Prehist.show()
+		$Manor_Casino.hide()
 		Global.current_room = "prehistoric"
 		AudioPlayer.fade_out_music(AudioPlayer.get_node("DefaultMusic"))
 		AudioPlayer.fade_in_music(AudioPlayer.get_node("CaveMusic"))
@@ -97,6 +103,7 @@ func on_enter_room(destination):
 		$Manor.show()
 		$Manor_Saloon.hide()
 		$Manor_Prehist.hide()
+		$Manor_Casino.hide()
 		if Global.current_room == "prehistoric":
 			AudioPlayer.fade_out_music(AudioPlayer.get_node("CaveMusic"))
 		if Global.current_room == "saloon":
@@ -107,9 +114,16 @@ func on_enter_room(destination):
 		$Manor.hide()
 		$Manor_Prehist.hide()
 		$Manor_Saloon.show()
+		$Manor_Casino.hide()
 		Global.current_room = "saloon"
 		AudioPlayer.fade_out_music(AudioPlayer.get_node("DefaultMusic"))
 		AudioPlayer.fade_in_music(AudioPlayer.get_node("SaloonMusic"))
+	if destination == "casino":
+		$Manor.hide()
+		$Manor_Prehist.hide()
+		$Manor_Saloon.hide()
+		$Manor_Casino.show()
+		Global.current_room = "casino"
 
 
 func on_choose_item(itemkey):
@@ -120,6 +134,10 @@ func on_inspect_show(show_key):
 		Global.in_menu = true
 		await get_tree().create_timer(1.3).timeout 
 		$Manor_Saloon/Keypad.show()
+	if show_key == "dartsinstruction":
+		Global.in_menu = true
+		await get_tree().create_timer(1.3).timeout 
+		$Manor_Saloon/DartsInstructions.show()
 		
 #Function to trigger cutscenes/change item resoureces
 func check_story_flags():
