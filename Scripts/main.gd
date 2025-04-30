@@ -11,6 +11,7 @@ func _ready():
 	# Detect which room is currently visible and store it
 	SignalBus.connect("inspect_show",on_inspect_show)
 
+	SaveManager.apply_save_data()
 	for child in get_children():
 		if child is Node2D and child.visible:
 			match child.name:
@@ -68,6 +69,10 @@ func cause_change(key):
 		$"Manor_Prehist/Grug Happy".show()
 		$Manor_Prehist/Dog.hide()
 		$Manor_Prehist/DogNoUse.show()
+		
+		StoryFlags.bone_used = true
+		SaveManager.save_game()  # Save after flag change
+		
 	if key == "markbad":
 		$Manor/Alcohol.switch_resource(load("res://Resources/alcoholbad.tres"))
 		SignalBus.emit_signal("display_conversation", Cutscenes.markhaterarc,Cutscenes.markhaterarcspeaker)

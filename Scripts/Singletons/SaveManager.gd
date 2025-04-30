@@ -4,7 +4,12 @@ var save_path := "user://save_data.save"
 
 func save_game():
 	var save_data = {
-		"current_room": Global.current_room
+		"current_room": Global.current_room,
+		"story_flags": {
+			"has_listened_to_walkie": StoryFlags.has_listened_to_walkie,
+			"bone_used":              StoryFlags.bone_used,
+			"has_checked_safe":       StoryFlags.has_checked_safe
+		}
 	}
 	var file = FileAccess.open(save_path, FileAccess.WRITE)
 	file.store_var(save_data)
@@ -21,6 +26,13 @@ func load_game_data() -> Dictionary:
 
 func apply_save_data():
 	var save_data = load_game_data()
+
 	if save_data.has("current_room"):
-		var room = save_data["current_room"]
-		SignalBus.emit_signal("enter", room)  # calls Main.gd's on_enter_room()
+		SignalBus.emit_signal("enter", save_data["current_room"])
+
+	if save_data.has("story_flags"):
+		var flags = save_data["story_flags"]
+		StoryFlags.has_listened_to_walkie = flags.get("has_listened_to_walkie", StoryFlags.has_listened_to_walkie)
+		StoryFlags.bone_used              = flags.get("bone_used",              StoryFlags.bone_used)
+		StoryFlags.has_checked_safe       = flags.get("has_checked_safe",       StoryFlags.has_checked_safe)
+		print("Story flags applied:", flags)
