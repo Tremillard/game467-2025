@@ -22,8 +22,8 @@ func _ready():
 				"Manor_Saloon":
 					Global.current_room = "saloon"
 			break
-	#$BlackBackground.show()
-	#SignalBus.emit_signal("display_conversation", Cutscenes.intro, Cutscenes.introspeaker, "introcutscene")
+	$BlackBackground.show()
+	SignalBus.emit_signal("display_conversation", Cutscenes.intro, Cutscenes.introspeaker, "introcutscene")
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta):
 	#This is to trigger cutscenes/change item resoureces
@@ -85,6 +85,10 @@ func cause_change(key):
 		SignalBus.emit_signal("display_conversation", Cutscenes.markgivekey, Cutscenes.markgivekeyspeaker, Cutscenes.markgivekeykey)
 	if key == "nothing":
 		SignalBus.emit_signal("display_dialogue", Cutscenes.nothing)
+	if key == "record":
+		SignalBus.emit_signal("display_conversation", Cutscenes.jukebox, Cutscenes.jukeboxspeaker, Cutscenes.jukeboxkey)
+		$"Manor_Casino/Dealer Standing".show()
+		$Manor_Casino/Curly.switch_resource(load("res://Resources/curlypostjukebox.tres"))
 
 #Function for changing between all of the rooms in the game
 #Hardcoded because it's a small game haha
@@ -145,3 +149,6 @@ func check_story_flags():
 		$"Manor_Prehist/Grug Happy".switch_resource(load("res://Resources/grugidentity.tres"))
 	if StoryFlags.has_checked_safe == true:
 		$Manor_Saloon/Mark.switch_resource(load("res://Resources/markhascheckedsafe.tres"))
+	if StoryFlags.has_won_gambling == true and Global.current_room == "manor":
+		StoryFlags.has_won_gambling = false
+		SignalBus.emit_signal("display_conversation", Cutscenes.playtest, Cutscenes.playtestspeaker)

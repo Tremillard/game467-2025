@@ -32,6 +32,9 @@ func _input(event):
 				next_message.emit()
 			elif Global.using_item == false:
 				clear_text()
+	if event.is_action("debug"): 
+		text_speed = 0
+		next_message.emit()
 
 #Signal busses for one/many dialogues
 func on_display_dialogue(new_message):
@@ -61,7 +64,7 @@ func print_message(message):
 #For N>1 dialogue boxes. Holds a speaker and key as well
 #Key is to trigger some things *after* dialogue finishes
 #Like sounds or something
-func print_dialogue(message,speaker, key):
+func print_dialogue(message,speaker,key):
 	text_speed = .03
 	printed = ""
 	current_speaker = ""
@@ -76,7 +79,6 @@ func print_dialogue(message,speaker, key):
 		else:
 			$SpeakerBackground.show()
 			print(speaker[counter])
-			
 		text_speed = .03
 		printed = line
 		text_label.visible_ratio = 0
@@ -106,6 +108,10 @@ func print_dialogue(message,speaker, key):
 		await get_tree().create_timer(.2).timeout
 		print("here's the record")
 		load("res://Resources/record.tres").take_item()
+	if key == "jukeboxkey":
+		SignalBus.emit_signal("display_conversation", Cutscenes.jukebox2, Cutscenes.jukeboxspeaker2, Cutscenes.jukeboxkey2)
+		$"../Manor_Casino/Dealer Standing".hide()
+		StoryFlags.has_won_gambling = true
 func _on_mouse_entered():
 	Global.Selected_Object = self
 

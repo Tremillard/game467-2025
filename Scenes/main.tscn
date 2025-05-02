@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://b4vadqqj38k7g"]
+[gd_scene load_steps=112 format=3 uid="uid://b4vadqqj38k7g"]
 
 [ext_resource type="Script" uid="uid://b3ek1jmcjy0j6" path="res://Scripts/main.gd" id="1_5wbwr"]
 [ext_resource type="PackedScene" uid="uid://ddnyj3yf6gsgm" path="res://Scenes/empty_clickable.tscn" id="1_8oicw"]
@@ -30,7 +30,11 @@
 [ext_resource type="Texture2D" uid="uid://q51q0t3vci7g" path="res://Assets/Images/keynochain.png" id="26_ueoa1"]
 [ext_resource type="Script" uid="uid://djb1c6fnq0or1" path="res://Scripts/black_background.gd" id="27_1w6v2"]
 [ext_resource type="Texture2D" uid="uid://bsto5q1yk2mw3" path="res://Assets/Images/manorcasino.png" id="29_7k868"]
+[ext_resource type="Resource" uid="uid://u0d4xstg13fc" path="res://Resources/curlyfirstencounter.tres" id="30_e08e2"]
 [ext_resource type="Texture2D" uid="uid://dqynscd7qbjfs" path="res://Assets/Images/dealerissolated.png" id="30_kltya"]
+[ext_resource type="Texture2D" uid="uid://2ett7uv4wvv3" path="res://Assets/Images/silhouette-of-a-standing-male-figure-on-a-transparent-background-png.webp" id="32_e08e2"]
+[ext_resource type="Texture2D" uid="uid://c7mbaghk5tc8q" path="res://Assets/Images/deckofcards.png" id="33_r33sp"]
+[ext_resource type="Texture2D" uid="uid://tao7cajaceqa" path="res://Assets/Images/exitlight.png" id="34_hdf80"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hptm8"]
 bg_color = Color(0.105882, 0.105882, 0.105882, 0.615686)
@@ -86,14 +90,14 @@ metadata/_custom_type_script = "uid://w0q7anfur22h"
 
 [sub_resource type="Resource" id="Resource_ovafv"]
 script = ExtResource("11_jkdf5")
-show = true
+show = false
 destination = "casino"
 enter_sound = ExtResource("18_fevyy")
 metadata/_custom_type_script = "uid://cluy2etoai2p2"
 
 [sub_resource type="Resource" id="Resource_owhal"]
 script = ExtResource("4_6iyac")
-text = "These doors seem quite important than the others."
+text = "These doors seem quite important compared to the others."
 show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
@@ -484,12 +488,33 @@ show_key = "safe"
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
 
+[sub_resource type="Resource" id="Resource_pfx1i"]
+script = ExtResource("7_fdnlq")
+text = PackedStringArray("The table seems like it\'s against me, but to me that only makes things more interesting!")
+show = false
+speaker = PackedStringArray("Gambler")
+metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"
+
+[sub_resource type="Resource" id="Resource_fg68e"]
+script = ExtResource("7_fdnlq")
+text = PackedStringArray("This game is getting tense, but I\'m liking my odds so far!")
+show = true
+speaker = PackedStringArray("Gambler")
+metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"
+
 [sub_resource type="Resource" id="Resource_f6rfp"]
 script = ExtResource("7_fdnlq")
-text = PackedStringArray("Excuse me sir, my name is Logan Ace and I heard you may have a key for a room? ", "Ehhh, key?", "I\'m with Thomas Lan-", "Now you listen here you think you have a \"hic\" a right to take my stuff! I\'m at my darn limit you piece of \"hic!\"", "You Botta get it from Mark now! ", "(Pulls out key and tries to blast Logan.) ", "Ehhh, what\'s up  \'hic\' with my revolver! I\'m know I reloaded it!", "(Looks like this guy might be drunk.)", "I think that can\'t hold bullets. I think I\'m going to need that though.", "Maybe if you get me a better \"hic\"  drink I might give it up. \"hic\" Everything here is so gaaaaaarbage!!")
+text = PackedStringArray("I won\'t talk to you unless you play.")
 show = true
-speaker = PackedStringArray("Logan", "???", "Logan", "???", "Mark", "", "Mark", "Logan", "Logan", "Mark")
+speaker = PackedStringArray("Dealer")
 metadata/_custom_type_script = "uid://dm7a2bwo0hbw0"
+
+[sub_resource type="Resource" id="Resource_jekl6"]
+script = ExtResource("9_6iyac")
+text = "Debug"
+show = false
+key = "markbad"
+metadata/_custom_type_script = "uid://w0q7anfur22h"
 
 [sub_resource type="Resource" id="Resource_sasc4"]
 script = ExtResource("4_6iyac")
@@ -497,6 +522,51 @@ text = "It's a fancy jukebox covered in playing card suits."
 show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_v1mrv"]
+script = ExtResource("9_6iyac")
+text = ""
+show = true
+key = "record"
+metadata/_custom_type_script = "uid://w0q7anfur22h"
+
+[sub_resource type="Resource" id="Resource_fd3ed"]
+script = ExtResource("4_6iyac")
+text = "This is a red deck, but one of the cards in it is blue."
+show_key = ""
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_qnggo"]
+script = ExtResource("4_fb3mb")
+show = true
+pick_up_text = "These cards are interesting. One has a unique blue back."
+inspect_text = "Interestingly, the back of the blue card has a [procedural] suit."
+texture = ExtResource("33_r33sp")
+key = "cards"
+metadata/_custom_type_script = "uid://b2m6w2fqm504y"
+
+[sub_resource type="Resource" id="Resource_tab3y"]
+script = ExtResource("4_6iyac")
+text = "Very flashy."
+show_key = ""
+show = true
+metadata/_custom_type_script = "uid://bjnyes25dp115"
+
+[sub_resource type="Resource" id="Resource_1tvlp"]
+script = ExtResource("4_fb3mb")
+show = false
+pick_up_text = "These cards are interesting. One has a unique blue back."
+inspect_text = "Interestingly, the back of the blue card has a [procedural] suit."
+texture = ExtResource("33_r33sp")
+key = "cards"
+metadata/_custom_type_script = "uid://b2m6w2fqm504y"
+
+[sub_resource type="Resource" id="Resource_wl4bb"]
+script = ExtResource("11_jkdf5")
+show = true
+destination = "manor"
+metadata/_custom_type_script = "uid://cluy2etoai2p2"
 
 [sub_resource type="Gradient" id="Gradient_k12tt"]
 colors = PackedColorArray(0, 0, 0, 1, 0, 0, 0, 1)
@@ -627,7 +697,6 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_hptm8")
 wait_time = 0.1
 
 [node name="Manor" type="Node2D" parent="." groups=["Rooms"]]
-visible = false
 
 [node name="Manorhub" type="Sprite2D" parent="Manor"]
 z_index = -1
@@ -859,6 +928,7 @@ usable_res = SubResource("Resource_b3802")
 enterable_res = SubResource("Resource_fevyy")
 
 [node name="Manor_Saloon" type="Node2D" parent="." groups=["Rooms"]]
+visible = false
 
 [node name="Sprite2D" type="Sprite2D" parent="Manor_Saloon"]
 z_index = -2
@@ -974,21 +1044,64 @@ position = Vector2(64, 48)
 scale = Vector2(1.08, 1.08)
 texture = ExtResource("29_7k868")
 
+[node name="Middle Guy" parent="Manor_Casino" instance=ExtResource("1_8oicw")]
+position = Vector2(58, -156)
+scale = Vector2(2, 2)
+talkable_res = SubResource("Resource_pfx1i")
+
+[node name="Right Guy" parent="Manor_Casino" instance=ExtResource("1_8oicw")]
+position = Vector2(280, -192)
+scale = Vector2(2, 4.31999)
+talkable_res = SubResource("Resource_fg68e")
+
+[node name="Curly" parent="Manor_Casino" instance=ExtResource("1_8oicw")]
+position = Vector2(-158, -212)
+scale = Vector2(2, 4.31999)
+talkable_res = ExtResource("30_e08e2")
+
 [node name="Dealer" parent="Manor_Casino" instance=ExtResource("1_8oicw")]
 position = Vector2(58, -330)
 scale = Vector2(2, 2)
 inspectable_res = SubResource("Resource_bv80c")
 talkable_res = SubResource("Resource_f6rfp")
-usable_res = SubResource("Resource_2060n")
+usable_res = SubResource("Resource_jekl6")
 
 [node name="Sprite2D" type="Sprite2D" parent="Manor_Casino/Dealer"]
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("30_kltya")
 
+[node name="Dealer Standing" type="Sprite2D" parent="Manor_Casino"]
+visible = false
+position = Vector2(712, -62)
+scale = Vector2(1.5675, 1.5675)
+texture = ExtResource("32_e08e2")
+
 [node name="Jukebox" parent="Manor_Casino" instance=ExtResource("1_8oicw")]
 position = Vector2(792, -66)
 scale = Vector2(2.87999, 5.63816)
 inspectable_res = SubResource("Resource_sasc4")
+usable_res = SubResource("Resource_v1mrv")
+
+[node name="Deck of Cards" parent="Manor_Casino" instance=ExtResource("1_8oicw")]
+position = Vector2(-608, 248)
+scale = Vector2(1.78197, 1.78197)
+inspectable_res = SubResource("Resource_fd3ed")
+takeable_res = SubResource("Resource_qnggo")
+
+[node name="Sprite2D" type="Sprite2D" parent="Manor_Casino/Deck of Cards"]
+texture = ExtResource("33_r33sp")
+
+[node name="Exit Sign" parent="Manor_Casino" instance=ExtResource("1_8oicw")]
+position = Vector2(-700, -388)
+scale = Vector2(2, 2)
+inspectable_res = SubResource("Resource_tab3y")
+takeable_res = SubResource("Resource_1tvlp")
+enterable_res = SubResource("Resource_wl4bb")
+
+[node name="Sprite2D" type="Sprite2D" parent="Manor_Casino/Exit Sign"]
+texture_filter = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("34_hdf80")
 
 [node name="TextBox" type="CanvasLayer" parent="."]
 

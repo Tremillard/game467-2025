@@ -1,5 +1,13 @@
 extends Node
 
+@export var playtest = [
+"Thank you for playing our game!",
+"If we had time to make a form, please fill it out!"
+]
+@export var playtestspeaker = [
+"Team Kronos",
+"Team Kronos"
+]
 @export var manorwalkie = [
 "Bzzzzzzz (Static Sounds)...",
 "Do you read me! This is Sheriff Thompson, Over!",
@@ -136,8 +144,40 @@ extends Node
 "",
 ""
 ]
-@export var unlock_safe_key = "unlocksafekey"
+@export var jukebox = [
+"Hmm, where's that music coming from? Did someone change the song without my permission? Hold on boys I'm gonna go check real fast just play without me.",
+"(Yessss! Now's my chance!)",
+"(I better hide so I avoid any trouble.)",
+"Yeah, that looks like that is the case. Someone changed the track without my permission.",
+"Whatever, I'll just change it back.",
+"(There he goes, back to the table...)",
+""
+]
+@export var jukeboxspeaker = [
+"Dealer",
+"Curly",
+"Logan",
+"Dealer",
+"Dealer",
+"Logan",
+""
+]
+@export var jukebox2 = [
+"Alright let's get back to this, looks Curly has made an expected comeback from the looks of things.",
+"(Some time past.)",
+"We have a winner with Curly taking it with an impressive comeback!",
+"Alright!"
+]
+@export var jukeboxspeaker2 = [
+"Dealer",
+"",
+"Dealer",
+"Curly"
+]
 
+@export var jukeboxkey = "jukeboxkey"
+@export var jukeboxkey2 = "jukeboxkey2"
+@export var unlock_safe_key = "unlocksafekey"
 @export var markgivekeykey = "markgivekeykey"
 @export var nothing = "Nothing happens."
 @export var give_dog_bone = "The dog yips happily! Perhaps I can take the bone now..."
