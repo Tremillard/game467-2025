@@ -163,8 +163,8 @@ extends Node
 ""
 ]
 @export var jukebox2 = [
-"Alright let's get back to this, looks Curly has made an expected comeback from the looks of things.",
-"(Some time past.)",
+"Alright let's get back to this, looks Curly has made an unexpected comeback from the looks of things.",
+"(Some time passes.)",
 "We have a winner with Curly taking it with an impressive comeback!",
 "Alright!"
 ]
