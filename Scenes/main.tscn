@@ -321,7 +321,7 @@ metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
 [sub_resource type="Resource" id="Resource_8cuat"]
 script = ExtResource("4_6iyac")
-text = "There's a key around the dog's collar. Since it's happy with the bone, perhaps I can snatch it..."
+text = "The key here is left on the counter, mine for the taking."
 show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
@@ -402,7 +402,7 @@ metadata/_custom_type_script = "uid://b2m6w2fqm504y"
 
 [sub_resource type="Resource" id="Resource_6ml46"]
 script = ExtResource("4_6iyac")
-text = "'Dust Devil Draft - Burly's Original (est. 1835).' This must have been made in-house, then. I wonder how good it tastes."
+text = "'Dust Devil Draft - Curly's Original (est. 1835).' This must have been made in-house, then. I wonder how good it tastes."
 show_key = ""
 show = true
 metadata/_custom_type_script = "uid://bjnyes25dp115"
